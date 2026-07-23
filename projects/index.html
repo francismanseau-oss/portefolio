@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Projets Francis Manseau : WS AI Platform, HK Crib GO, Nexus et Haven.">
+<title>Projets | Francis Manseau</title>
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../assets/brand/favicon/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="../assets/brand/favicon/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="shortcut icon" href="../assets/logo/favicon.png" type="image/png">
+<script src="../js/theme.js"></script>
+<link rel="stylesheet" href="../css/site.css?v=9">
+<link rel="stylesheet" href="../css/themes.css?v=9">
+<link rel="stylesheet" href="../css/layout.css?v=9">
+<link rel="stylesheet" href="../css/interactive.css?v=9">
+
+<style>
+:root {
+    --bg-deep: #060810;
+    --bg-top: #0c1222;
+    --bg-surface: rgba(14, 20, 36, 0.72);
+    --bg-card: rgba(12, 18, 32, 0.85);
+    --border: rgba(56, 80, 120, 0.35);
+    --text: #f0f4ff;
+    --text-muted: #94a3b8;
+    --text-muted-soft: #b4c1d3;
+    --lead-color: #cbd5e1;
+    --accent: #22d3ee;
+    --accent-violet: #8b5cf6;
+    --accent-soft: rgba(34, 211, 238, 0.1);
+    --glow-cyan: 0 0 20px rgba(34, 211, 238, 0.18), 0 0 40px rgba(34, 211, 238, 0.06);
+    --glow-violet: 0 0 20px rgba(139, 92, 246, 0.18), 0 0 40px rgba(139, 92, 246, 0.06);
+    --glow-blue: 0 0 20px rgba(59, 130, 246, 0.18), 0 0 40px rgba(59, 130, 246, 0.06);
+    --badge-soon: #64748b;
+    --badge-tool: #3b82f6;
+    --radius: 10px;
+    --btn-radius: 15px;
+    --font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --card-width: min(720px, 88vw);
+    --card-gap: 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+figure { margin: 0; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-deep) 55%, #040608 100%);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+main.page-projects {
+    max-width: min(1100px, 100%);
+    margin: 0 auto;
+    padding-bottom: clamp(48px, 8vw, 80px);
+}
+
+.page-projects .page-intro {
+    width: min(760px, 92%);
+    margin: 0 auto clamp(36px, 6vw, 56px);
+    text-align: center;
+}
+
+.page-projects .page-intro h1 {
+    margin: 0 0 14px;
+}
+
+.page-intro__lead {
+    margin: 0;
+    color: var(--lead-color);
+    font-size: clamp(1rem, 2.4vw, 1.08rem);
+    line-height: 1.75;
+    max-width: 52ch;
+    margin-inline: auto;
+}
+
+/* -- Carrousel portfolio -- */
+
+.projects-showcase {
+    width: min(980px, 94%);
+    margin: 0 auto;
+}
+
+.showcase-carousel {
+    display: grid;
+    grid-template-columns: 48px 1fr 48px;
+    align-items: center;
+    gap: 12px;
+}
+
+.showcase-viewport {
+    overflow: hidden;
+    padding: 8px 0 20px;
+}
+
+.showcase-track {
+    display: flex;
+    align-items: stretch;
+    gap: var(--card-gap);
+    will-change: transform;
+    transition: transform 0.48s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card {
+    flex: 0 0 var(--card-width);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: linear-gradient(165deg, rgba(16, 24, 44, 0.96) 0%, rgba(10, 14, 28, 0.98) 100%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    opacity: 0.48;
+    transform: scale(0.94);
+    transition: opacity 0.38s ease, transform 0.38s ease, border-color 0.38s ease, box-shadow 0.38s ease;
+}
+
+.project-card.is-active {
+    opacity: 1;
+    transform: scale(1);
+    border-color: rgba(34, 211, 238, 0.42);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), var(--glow-cyan);
+}
+
+.project-card__media {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(139, 92, 246, 0.14));
+    border-bottom: 1px solid rgba(56, 80, 120, 0.35);
+}
+
+.project-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.project-card__media--contain img {
+    object-fit: contain;
+    padding: 18px;
+    background: rgba(6, 10, 20, 0.55);
+}
+
+.project-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: clamp(22px, 4vw, 30px);
+    text-align: left;
+}
+
+.project-card__title {
+    margin: 0 0 12px;
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.project-card__desc {
+    margin: 0 0 20px;
+    color: var(--lead-color);
+    line-height: 1.72;
+    font-size: clamp(0.96rem, 2.2vw, 1.04rem);
+}
+
+.project-card__tech-label {
+    margin: 0 0 8px;
+    font-size: 0.78rem;
+    color: var(--text-muted, #94a3b8);
+    line-height: 1.4;
+}
+.project-card__tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.project-card__tech {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 22px;
+}
+
+.tech-tag {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: rgba(59, 130, 246, 0.12);
+    color: #93c5fd;
+    border: 1px solid rgba(59, 130, 246, 0.28);
+}
+
+.tech-tag:nth-child(3n + 2) {
+    background: rgba(139, 92, 246, 0.12);
+    color: #c4b5fd;
+    border-color: rgba(139, 92, 246, 0.28);
+}
+
+.tech-tag:nth-child(3n + 3) {
+    background: rgba(34, 211, 238, 0.1);
+    color: #67e8f9;
+    border-color: rgba(34, 211, 238, 0.28);
+}
+
+.project-card__actions {
+    margin-top: auto;
+}
+
+.btn-learn-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: var(--btn-radius);
+    background: linear-gradient(180deg, rgba(16, 38, 68, 0.92) 0%, rgba(10, 24, 46, 0.96) 100%);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid rgba(34, 211, 238, 0.52);
+    box-shadow: 0 0 16px rgba(34, 211, 238, 0.12), 0 4px 12px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.btn-learn-more:hover {
+    border-color: rgba(34, 211, 238, 0.72);
+    box-shadow: 0 0 22px rgba(34, 211, 238, 0.22);
+    transform: translateY(-1px);
+}
+
+.showcase-arrow {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(34, 211, 238, 0.34);
+    border-radius: 50%;
+    background: rgba(12, 18, 32, 0.92);
+    color: #eaf2ff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 14px rgba(34, 211, 238, 0.1);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.showcase-arrow:hover {
+    border-color: rgba(34, 211, 238, 0.62);
+    box-shadow: 0 0 18px rgba(34, 211, 238, 0.24);
+    transform: translateY(-1px) scale(1.04);
+}
+
+.showcase-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.showcase-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(148, 163, 184, 0.42);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.showcase-dot.is-active {
+    background: var(--accent);
+    transform: scale(1.15);
+}
+
+/* -- Détail projet -- */
+
+.project-detail {
+    width: min(760px, 92%);
+    margin: clamp(40px, 7vw, 56px) auto 0;
+    opacity: 1;
+    transition: opacity 0.32s ease;
+}
+
+.project-detail[hidden] {
+    display: none;
+}
+
+.page-hero,
+.features-section,
+.screenshots-section {
+    margin-top: 32px;
+    padding: 32px;
+    border-radius: var(--radius);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--glow-cyan);
+}
+
+.badge {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.project-card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.project-card-badges .badge { margin-bottom: 0; font-size: 0.68rem; padding: 4px 10px; }
+
+.badge-cat-type { background: rgba(139, 92, 246, 0.18); color: var(--accent-violet); }
+.badge-cat-platform { background: rgba(59, 130, 246, 0.15); color: var(--badge-tool); }
+.badge-available { background: var(--accent-soft); color: var(--accent); }
+.badge-soon { background: rgba(100, 116, 139, 0.2); color: var(--badge-soon); }
+.badge-dev { background: rgba(201, 162, 39, 0.18); color: #c9a227; }
+
+.features-title,
+.screenshots-title {
+    margin: 0 0 16px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: .82rem;
+}
+
+.lead {
+    margin: 0 0 16px;
+    color: var(--lead-color);
+    line-height: 1.75;
+    font-size: 1.05rem;
+}
+
+.lead:last-child { margin-bottom: 0; }
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.feature-card {
+    padding: 20px;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    box-shadow: 0 0 24px rgba(139, 92, 246, 0.06);
+}
+
+.feature-card h3 { margin: 0 0 10px; }
+.feature-card p { margin: 0; color: var(--text-muted-soft); line-height: 1.65; }
+
+.features-grid .feature-card:nth-child(3n + 1) { border-color: rgba(139, 92, 246, 0.28); box-shadow: var(--glow-violet); }
+.features-grid .feature-card:nth-child(3n + 2) { border-color: rgba(59, 130, 246, 0.28); box-shadow: var(--glow-blue); }
+.features-grid .feature-card:nth-child(3n + 3) { border-color: rgba(34, 211, 238, 0.28); box-shadow: var(--glow-cyan); }
+
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(14px, 3vw, 20px);
+}
+
+.screenshot-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+}
+
+.screenshot-card figcaption {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    color: var(--text-muted-soft);
+    text-align: center;
+}
+
+.hero-app-shot {
+    margin: 0 0 clamp(32px, 6vw, 48px);
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--glow-cyan);
+    background: var(--bg-card);
+}
+
+.hero-app-shot img { display: block; width: 100%; height: auto; }
+
+/* Haven */
+.haven-summary-box {
+    padding: 32px;
+    border-radius: var(--radius);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--glow-cyan);
+    text-align: center;
+}
+
+.haven-summary-box h1 { margin: 0 0 16px; }
+.haven-subtitle { margin-bottom: 20px; color: var(--accent); font-weight: 600; }
+
+.haven-shots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: clamp(32px, 6vw, 48px);
+}
+
+.haven-shot {
+    flex: 1 1 160px;
+    max-width: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    box-shadow: var(--glow-cyan);
+}
+
+.haven-shot img { display: block; width: 100%; height: auto; }
+
+.haven-benefits-grid,
+.nexus-advantages-grid,
+.wsai-features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.haven-benefits.features-section,
+.cribleplus-benefits.features-section,
+.wsai-benefits.features-section {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+.cribleplus-legal-links {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.cribleplus-legal-links__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+}
+
+.cribleplus-legal-links__list a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .haven-benefits-grid,
+    .nexus-advantages-grid,
+    .wsai-features-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+    .showcase-carousel {
+        grid-template-columns: 40px 1fr 40px;
+        gap: 8px;
+    }
+
+    .showcase-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .project-card:not(.is-active) {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .page-hero,
+    .features-section,
+    .screenshots-section,
+    .haven-summary-box {
+        padding: clamp(18px, 4vw, 22px);
+    }
+}
+</style>
+<link rel="stylesheet" href="../css/mobile-readability.css?v=9">
+</head>
+
+<body data-nav-root="../" data-nav-active="projects">
+    <script src="../js/site-bg.js"></script>
+
+    <header class="site-header">
+        <div class="header-top">
+            <div class="header-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../assets/logo/logo-nav.png" alt="" class="logo-icon" width="56" height="56">
+                    <span class="logo-text">Francis <span>Manseau</span></span>
+                </a>
+            </div>
+            <nav class="main-nav" id="mainNav" aria-label="Navigation principale"></nav>
+            <script src="../js/site-nav.js?v=6"></script>
+            <span class="lang-status" id="langStatus" data-translate>Traduction…</span>
+            <nav class="lang-switcher" id="langFlags" aria-label="Choisir la langue">
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="de">DE</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="es">ES</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="it">IT</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="zh-CN">ZH</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="ja">JA</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="pt">PT</button>
+            </nav>
+            <script src="../js/lang-ui.js"></script>
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">?</button>
+        </div>
+    </header>
+
+<main class="page-projects">
+    <header class="page-intro">
+        <h1 data-translate>Projets</h1>
+        <p class="page-intro__lead" data-translate>Projets concrets en mobile Android, intelligence artificielle et automatisation — livrables, testables et orientés produit.</p>
+    </header>
+
+    <section class="projects-showcase" id="projectsShowcase" aria-label="Carrousel de projets">
+        <div class="showcase-carousel">
+            <button class="showcase-arrow" type="button" data-direction="-1" aria-label="Projet précédent">‹</button>
+
+            <div class="showcase-viewport">
+                <div class="showcase-track" id="showcaseTrack"></div>
+            </div>
+
+            <button class="showcase-arrow" type="button" data-direction="1" aria-label="Projet suivant">›</button>
+        </div>
+
+        <div class="showcase-dots" id="showcaseDots" role="tablist" aria-label="Navigation des projets"></div>
+    </section>
+
+    <section class="project-detail" id="projectDetail" hidden aria-live="polite"></section>
+</main>
+
+
+<script src="../js/nav.js"></script>
+<script src="../js/mobile-nav.js"></script>
+<script src="../js/portrait-lock.js"></script>
+<script src="../js/back-to-top.js"></script>
+<script src="../js/i18n.js"></script>
+<script>
+const projects = [
+    {
+        id: "ws-ai-platform",
+        title: "WS AI Platform",
+        image: "../assets/project-gallery/ws-ai-platform.png",
+        imageClass: "project-card__media--contain",
+        imageFallback: "../assets/projects/nexus-bridge/nexusbridge.png",
+        alt: "WS AI Platform — plateforme multi-agents",
+        description: "Plateforme d'intelligence artificielle multi-agents avec architecture modulaire. Automatisation et orchestration de tâches entre agents spécialisés, APIs et outils métier.",
+        technologies: ["Python", "FastAPI", "Multi-agents", "YAML", "REST", "Orchestration"],
+        template: `
+            <section class="page-hero">
+                <div class="project-card-badges" aria-label="Informations projet">
+                    <span class="badge badge-cat-type" data-translate>Plateforme</span>
+                    <span class="badge badge-cat-platform" data-translate>Serveur</span>
+                    <span class="badge badge-available" data-translate>Disponible</span>
+                </div>
+                <h1>WS AI Platform</h1>
+                <p class="lead" data-translate>WS AI Platform est une infrastructure multi-agents conçue pour coordonner des assistants spécialisés, des adaptateurs métier et des flux d'automatisation.</p>
+                <p class="lead" data-translate>L'architecture modulaire permet d'ajouter des agents, des routes API et des intégrations sans remettre en cause le cœur du système — id — al pour faire évoluer un produit intelligent étape par étape.</p>
+                <p class="lead" data-translate>La plateforme orchestre l'enfilement des tâches, le routage vers le bon agent et la remontée d'état — compétences clés en conception de systèmes IA et en automatisation.</p>
+            </section>
+
+            <section class="features-section wsai-benefits">
+                <h2 class="features-title" data-translate>Ce que démontre ce projet</h2>
+                <div class="features-grid wsai-features-grid">
+                    <article class="feature-card">
+                        <h3 data-translate>Architecture modulaire</h3>
+                        <p data-translate>Agents configurables, adaptateurs isolés et séparation claire entre orchestration, persistance et interfaces.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Orchestration</h3>
+                        <p data-translate>Enfilement, claim et suivi de jobs — pattern robuste pour relier mobile, bridge et environnement de développement.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>APIs & intégrations</h3>
+                        <p data-translate>Exposition REST, configuration YAML et branchement d'outils externes (support, admin, automatisations).</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Vision produit</h3>
+                        <p data-translate>Base réutilisable pour plusieurs projets (support jeu, supervision, prompts distants) sans dupliquer la logique.</p>
+                    </article>
+                </div>
+            </section>
+        `
+    },
+    {
+        id: "hk-crib-go",
+        title: "HK Crib GO",
+        image: "../assets/project-gallery/cribleplus.png",
+        alt: "HK Crib GO — jeu de cribbage Android",
+        description: "Application mobile Android : jeu de cribbage moderne avec IA de jeu, statistiques détaillées et support technique intégré pour une expérience complète.",
+        technologies: ["Kotlin", "Android", "JavaScript", "Gradle", "WebView", "IA"],
+        template: `
+            <section class="page-hero">
+                <div class="project-card-badges" aria-label="Informations projet">
+                    <span class="badge badge-cat-type" data-translate>Jeu</span>
+                    <span class="badge badge-cat-platform" data-translate>Android</span>
+                    <span class="badge badge-available" data-translate>Disponible</span>
+                </div>
+                <h1>HK Crib GO</h1>
+                <p class="lead" data-translate>HK Crib GO revisite le Crible Hong Kong dans une version modernisée, plus rapide et plus fluide. Pensé pour Android, il conserve l'esprit stratégique du jeu de cartes tout en rendant les parties plus accessibles.</p>
+                <p class="lead" data-translate>Le projet combine moteur de jeu, interface soignée, adversaire IA, statistiques et boucle de support — démontrant une maîtrise du mobile de bout en bout.</p>
+            </section>
+
+            <section class="features-section cribleplus-benefits">
+                <h2 class="features-title" data-translate>Ce qui distingue HK Crib GO</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <h3 data-translate>Hors ligne</h3>
+                        <p data-translate>Jouez sans connexion. Idéal en déplacement ou sans données mobiles.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Adversaire intégré</h3>
+                        <p data-translate>Affrontez l'ordinateur à votre rythme, avec plusieurs niveaux de difficulté.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Statistiques & support</h3>
+                        <p data-translate>Suivi des performances, historique et assistance intégrée pour une expérience produit complète.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="screenshots-section">
+                <h2 class="screenshots-title" data-translate>Aperçu du jeu</h2>
+                <div class="screenshots-grid">
+                    <figure class="screenshot-card">
+                        <img src="../assets/projects/cribleplus/debut%20round.png" alt="HK Crib GO — Début de manche" width="400" height="800" loading="lazy" decoding="async">
+                        <figcaption data-translate>Début de manche</figcaption>
+                    </figure>
+                    <figure class="screenshot-card">
+                        <img src="../assets/projects/cribleplus/comptage%20des%20points.png" alt="HK Crib GO — Comptage des points" width="400" height="800" loading="lazy" decoding="async">
+                        <figcaption data-translate>Comptage des points</figcaption>
+                    </figure>
+                    <figure class="screenshot-card">
+                        <img src="../assets/projects/cribleplus/5%20mode%20cpu.png" alt="HK Crib GO — Modes adversaire" width="400" height="800" loading="lazy" decoding="async">
+                        <figcaption data-translate>Cinq niveaux d'adversaire</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <nav class="cribleplus-legal-links" aria-label="Documents juridiques HK Crib GO">
+                <p class="cribleplus-legal-links__title">Documents juridiques</p>
+                <ul class="cribleplus-legal-links__list">
+                    <li><a href="/legal/content/cribleplus/">Politique de confidentialité</a></li>
+                    <li><a href="/legal/content/cribleplus/">Conditions d'utilisation</a></li>
+                    <li><a href="/legal/content/cribleplus/">Mentions légales</a></li>
+                </ul>
+            </nav>
+        `
+    },
+    {
+        id: "nexus",
+        title: "Nexus (PC & Mobile)",
+        image: "../assets/project-gallery/nexus-bridge.png",
+        imageClass: "project-card__media--contain",
+        alt: "Nexus — console de supervision PC et mobile",
+        description: "Console personnelle de supervision sur PC et mobile. Surveillance des ressources système, automatisation et administration — distance depuis n'importe où.",
+        technologies: ["Kotlin", "Python", "Android", "Windows", "REST", "Automatisation"],
+        template: `
+            <section class="page-hero">
+                <div class="project-card-badges" aria-label="Informations projet">
+                    <span class="badge badge-cat-type" data-translate>Console</span>
+                    <span class="badge badge-cat-platform" data-translate>PC & Mobile</span>
+                    <span class="badge badge-available" data-translate>Disponible</span>
+                </div>
+                <h1>Nexus (PC & Mobile)</h1>
+                <p class="lead" data-translate>Nexus est une console personnelle de supervision qui relie votre téléphone — votre environnement de travail : métriques machine, agents, prompts distants et automatisation.</p>
+                <p class="lead" data-translate>Depuis l'application mobile, vous pilotez des tâches, suivez l'état du système et recevez les retours en temps réel — sans rester devant le PC.</p>
+                <p class="lead" data-translate>Le bridge PC assure la connexion bidirectionnelle avec Cursor et WS AI Platform, démontrant des compétences full-stack, mobile native et ops.</p>
+            </section>
+
+            <figure class="hero-app-shot">
+                <img src="../assets/projects/nexus/mobile/05-chat-plan.jpg" alt="Nexus Mobile — brainstorm Virtuose (@admin) : persistance conversationId, reprise session Cursor" width="1080" height="2340" loading="lazy" decoding="async">
+            </figure>
+
+            <section class="features-section">
+                <h2 class="features-title" data-translate>Ce que démontre Nexus</h2>
+                <div class="features-grid nexus-advantages-grid">
+                    <article class="feature-card">
+                        <h3 data-translate>Supervision système</h3>
+                        <p data-translate>Capteurs machine, santé runtime et alertes — visibilité ops depuis mobile ou desktop.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Administration à distance</h3>
+                        <p data-translate>Envoi de prompts, suivi de jobs et récupération des résultats où que vous soyez.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Automatisation</h3>
+                        <p data-translate>Orchestration entre mobile, bridge et agents — moins d'allers-retours manuels.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Écosystème cohérent</h3>
+                        <p data-translate>Application Android, service Windows et APIs alignés sur une même architecture produit.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="screenshots-section">
+                <h2 class="screenshots-title" data-translate>Aperçu mobile</h2>
+                <div class="screenshots-grid">
+                    <figure class="screenshot-card">
+                        <img src="../assets/projects/nexus/mobile/04-chat-mission.jpg" alt="Nexus — gestion de session Cursor expirée, Phase 4" width="1080" height="2340" loading="lazy" decoding="async">
+                        <figcaption data-translate>Reprise de session — message clair si fil Cursor expiré</figcaption>
+                    </figure>
+                    <figure class="screenshot-card">
+                        <img src="../assets/projects/nexus/mobile/02-agents.jpg" alt="Nexus — menu agents WS AI (Virtuose, Mia, Kenji…)" width="1080" height="2340" loading="lazy" decoding="async">
+                        <figcaption data-translate>Routage multi-agents (@admin, orchestration, support)</figcaption>
+                    </figure>
+                    <figure class="screenshot-card">
+                        <img src="../assets/projects/nexus/mobile/03-dashboard.jpg" alt="Console WSAI — tableau de bord santé machine" width="1080" height="2340" loading="lazy" decoding="async">
+                        <figcaption data-translate>Console WSAI — CPU, RAM, SSD et services en direct</figcaption>
+                    </figure>
+                    <figure class="screenshot-card">
+                        <img src="../assets/projects/nexus/mobile/01-options.jpg" alt="Nexus — options Wake-on-LAN et préférences mobile" width="1080" height="2340" loading="lazy" decoding="async">
+                        <figcaption data-translate>Options — réveil PC à distance et préférences d'affichage</figcaption>
+                    </figure>
+                </div>
+            </section>
+        `
+    },
+    {
+        id: "haven",
+        title: "Haven",
+        image: "../assets/project-gallery/haven.png",
+        alt: "Haven — gestion intelligente des appels et notifications",
+        description: "Application Android de gestion intelligente des appels et notifications. Automatisation basée sur des règles personnalisées selon votre contexte — travail, conduite, sommeil.",
+        technologies: ["Kotlin", "Android", "R — gles", "Notifications", "Automatisation"],
+        template: `
+            <section class="haven-summary-box">
+                <div class="project-card-badges" aria-label="Informations projet">
+                    <span class="badge badge-cat-type" data-translate>Application</span>
+                    <span class="badge badge-cat-platform" data-translate>Android</span>
+                    <span class="badge badge-soon" data-translate>Bientôt</span>
+                </div>
+                <h1>Haven</h1>
+                <p class="haven-subtitle" data-translate>Réappropriez-vous votre tranquillité d'esprit.</p>
+                <p class="lead" data-translate>Reprenez le contrôle total de vos appels téléphoniques, SMS, courriels et notifications.</p>
+                <p class="lead" data-translate>Configurez Haven une seule fois selon vos préférences, puis laissez-le travailler automatiquement en arrière-plan selon vos horaires et votre contexte.</p>
+            </section>
+
+            <section class="haven-shots" aria-label="Captures d'écran Haven">
+                <figure class="haven-shot">
+                    <img src="../assets/projects/haven/1.png" alt="Capture d'écran Haven — 1" width="1080" height="2340" loading="lazy" decoding="async">
+                </figure>
+                <figure class="haven-shot">
+                    <img src="../assets/projects/haven/2.png" alt="Capture d'écran Haven — 2" width="1080" height="2340" loading="lazy" decoding="async">
+                </figure>
+                <figure class="haven-shot">
+                    <img src="../assets/projects/haven/3.png" alt="Capture d'écran Haven — 3" width="1080" height="2340" loading="lazy" decoding="async">
+                </figure>
+            </section>
+
+            <section class="features-section haven-benefits">
+                <h2 class="features-title" data-translate>Pourquoi Haven est différent</h2>
+                <div class="features-grid haven-benefits-grid">
+                    <article class="feature-card">
+                        <h3 data-translate>Une seule configuration</h3>
+                        <p data-translate>Configurez vos règles une fois — Haven applique automatiquement les bons comportements selon vos modes et horaires.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Conduite automatique</h3>
+                        <p data-translate>Détection des trajets et activation du mode conduite sans intervention manuelle.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Contexte scolaire</h3>
+                        <p data-translate>R — gles par plages horaires pour réduire les distractions en classe et les réactiver aux pauses.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Sommeil sans inquiétude</h3>
+                        <p data-translate>Filtrage nocturne intelligent avec exceptions d'urgence et alertes gouvernementales préservées.</p>
+                    </article>
+                </div>
+            </section>
+        `
+    }
+];
+
+let currentIndex = 0;
+let isAnimating = false;
+
+const track = document.getElementById("showcaseTrack");
+const dotsContainer = document.getElementById("showcaseDots");
+const viewport = document.querySelector(".showcase-viewport");
+const detail = document.getElementById("projectDetail");
+const arrows = document.querySelectorAll(".showcase-arrow");
+
+function createCard(project, index) {
+    const card = document.createElement("article");
+    card.className = "project-card" + (index === currentIndex ? " is-active" : "");
+    card.setAttribute("role", "tabpanel");
+    card.setAttribute("aria-hidden", index === currentIndex ? "false" : "true");
+    card.dataset.index = String(index);
+
+    const media = document.createElement("div");
+    media.className = "project-card__media" + (project.imageClass ? " " + project.imageClass : "");
+
+    const img = document.createElement("img");
+    img.src = project.image;
+    img.alt = project.alt;
+    img.loading = index === currentIndex ? "eager" : "lazy";
+    img.decoding = "async";
+    if (project.imageFallback) {
+        img.addEventListener("error", function onError() {
+            img.removeEventListener("error", onError);
+            img.src = project.imageFallback;
+        }, { once: true });
+    }
+    media.appendChild(img);
+
+    const body = document.createElement("div");
+    body.className = "project-card__body";
+
+    const title = document.createElement("h2");
+    title.className = "project-card__title";
+    title.textContent = project.title;
+
+    const desc = document.createElement("p");
+    desc.className = "project-card__desc";
+    desc.textContent = project.description;
+
+    const techWrap = document.createElement("div");
+    techWrap.className = "project-card__tech";
+    techWrap.setAttribute("aria-label", "Technologies utilisées dans la réalisation");
+
+    const techLabel = document.createElement("p");
+    techLabel.className = "project-card__tech-label";
+    techLabel.textContent = "Technologies utilisées dans la réalisation :";
+
+    const techList = document.createElement("div");
+    techList.className = "project-card__tech-list";
+    project.technologies.forEach(function (tech) {
+        const tag = document.createElement("span");
+        tag.className = "tech-tag";
+        tag.textContent = tech;
+        techList.appendChild(tag);
+    });
+    techWrap.append(techLabel, techList);
+
+    const actions = document.createElement("div");
+    actions.className = "project-card__actions";
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "btn-learn-more";
+    btn.textContent = "En savoir plus";
+    btn.addEventListener("click", function () {
+        if (index !== currentIndex) {
+            goToProject(index, false);
+        }
+        openDetail(index);
+    });
+
+    actions.appendChild(btn);
+    body.append(title, desc, techWrap, actions);
+    card.append(media, body);
+    return card;
+}
+
+function renderDots() {
+    dotsContainer.innerHTML = "";
+    projects.forEach(function (_, index) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "showcase-dot" + (index === currentIndex ? " is-active" : "");
+        dot.setAttribute("role", "tab");
+        dot.setAttribute("aria-label", "Projet " + (index + 1) + " sur " + projects.length);
+        dot.setAttribute("aria-selected", index === currentIndex ? "true" : "false");
+        dot.addEventListener("click", function () {
+            goToProject(index, false);
+        });
+        dotsContainer.appendChild(dot);
+    });
+}
+
+function updateTrackPosition() {
+    const card = track.querySelector(".project-card");
+    if (!card || !viewport) return;
+
+    const cardWidth = card.offsetWidth;
+    const gap = parseFloat(getComputedStyle(track).gap) || 24;
+    const viewportWidth = viewport.offsetWidth;
+    const offset = (viewportWidth - cardWidth) / 2 - currentIndex * (cardWidth + gap);
+    track.style.transform = "translateX(" + offset + "px)";
+}
+
+function renderCarousel() {
+    track.innerHTML = "";
+    projects.forEach(function (project, index) {
+        track.appendChild(createCard(project, index));
+    });
+    renderDots();
+    requestAnimationFrame(updateTrackPosition);
+}
+
+function goToProject(index, openDetails) {
+    if (isAnimating || index === currentIndex) return;
+    isAnimating = true;
+
+    currentIndex = ((index % projects.length) + projects.length) % projects.length;
+    renderCarousel();
+
+    if (openDetails) {
+        openDetail(currentIndex);
+    }
+
+    setTimeout(function () {
+        isAnimating = false;
+    }, 480);
+}
+
+function changeProject(direction) {
+    goToProject(currentIndex + direction, false);
+}
+
+function openDetail(index) {
+    detail.hidden = false;
+    detail.style.opacity = "0";
+    detail.innerHTML = projects[index].template;
+
+    requestAnimationFrame(function () {
+        detail.style.opacity = "1";
+        detail.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+}
+
+arrows.forEach(function (arrow) {
+    arrow.addEventListener("click", function () {
+        changeProject(Number(arrow.dataset.direction));
+    });
+});
+
+let touchStartX = 0;
+viewport.addEventListener("touchstart", function (event) {
+    touchStartX = event.changedTouches[0].screenX;
+}, { passive: true });
+
+viewport.addEventListener("touchend", function (event) {
+    const delta = event.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(delta) < 50) return;
+    changeProject(delta < 0 ? 1 : -1);
+}, { passive: true });
+
+window.addEventListener("resize", updateTrackPosition);
+
+renderCarousel();
+</script>
+
+</body>
+</html>
