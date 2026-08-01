@@ -20,6 +20,12 @@
     "cta": "Discover my projects →",
     "metaDescription": "Portfolio of Francis Manseau, designer of digital solutions through AI orchestration. Design, direction, supervision, and validation of Android products and automated systems."
   },
+  "contact": {
+    "title": "Contact",
+    "p1": "I am currently looking for a professional opportunity where I can put to use my ability to analyze needs, design digital solutions, and direct their realization with artificial intelligence.",
+    "p2": "I want to join an environment where I can contribute to concrete projects, collaborate with a team, and keep developing my skills in functional architecture, automation, and AI tool orchestration.",
+    "p3": "Would you like to discuss a role, a collaboration, or my background? Reach out to me directly."
+  },
   "skills": {
     "title": "Skills",
     "role": "Designer of digital solutions through artificial intelligence orchestration",
