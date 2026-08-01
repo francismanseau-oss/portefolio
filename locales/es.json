@@ -20,6 +20,13 @@
     "cta": "Descubrir mis proyectos →",
     "metaDescription": "Portfolio de Francis Manseau, diseñador de soluciones digitales mediante orquestación de IA. Concepción, dirección, supervisión y validación de productos Android y sistemas automatizados."
   },
+  "skills": {
+    "title": "Competencias",
+    "role": "Diseñador de soluciones digitales mediante la orquestación de la inteligencia artificial",
+    "lead": "No programo directamente. Concibo las soluciones, defino su arquitectura y su funcionamiento, y luego dirijo su realización mediante herramientas y agentes de inteligencia artificial.",
+    "designsFeatures": "Concibe las funcionalidades",
+    "directsCorrections": "Dirige las correcciones"
+  },
   "discussion": {
     "title": "Discusión comunitaria",
     "subtitle": "Comparte tus ideas — no se requiere registro.",

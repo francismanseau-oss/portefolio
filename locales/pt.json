@@ -20,6 +20,13 @@
     "cta": "Descobrir os meus projetos →",
     "metaDescription": "Portfolio de Francis Manseau, conceptor de soluções digitais por orquestração de IA. Conceção, direção, supervisão e validação de produtos Android e sistemas automatizados."
   },
+  "skills": {
+    "title": "Competências",
+    "role": "Conceptor de soluções digitais por orquestração da inteligência artificial",
+    "lead": "Não programo diretamente. Concebo as soluções, defino a sua arquitetura e o seu funcionamento, e depois dirijo a sua realização através de ferramentas e agentes de inteligência artificial.",
+    "designsFeatures": "Concebe as funcionalidades",
+    "directsCorrections": "Dirige as correções"
+  },
   "discussion": {
     "title": "Discussão da comunidade",
     "subtitle": "Compartilhe suas ideias — sem cadastro.",

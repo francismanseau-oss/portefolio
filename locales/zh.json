@@ -20,6 +20,13 @@
     "cta": "发现我的项目 →",
     "metaDescription": "Francis Manseau 作品集：通过人工智能编排构想数字解决方案。负责 Android 产品与自动化系统的设计、指导、监督与验证。"
   },
+  "skills": {
+    "title": "能力",
+    "role": "通过人工智能编排设计数字解决方案的构想者",
+    "lead": "我并不直接编写代码。我构想解决方案、定义其架构与运作方式，然后通过人工智能工具与智能体指导其实现。",
+    "designsFeatures": "构想功能",
+    "directsCorrections": "指导修正"
+  },
   "discussion": {
     "title": "社区讨论",
     "subtitle": "分享您的想法 — 无需注册。",
