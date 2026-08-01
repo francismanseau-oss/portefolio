@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0a0e1a">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Projets Francis Manseau : WS AI Platform, HK Crib GO, Nexus et Haven.">
+<meta name="description" content="Projets Francis Manseau : HK Crib GO, Nexus et Haven.">
 <title>Projets | Francis Manseau</title>
 <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/brand/favicon/favicon-32.png" type="image/png" sizes="32x32">
@@ -436,14 +436,12 @@ main.page-projects {
 .haven-shot img { display: block; width: 100%; height: auto; }
 
 .haven-benefits-grid,
-.nexus-advantages-grid,
-.wsai-features-grid {
+.nexus-advantages-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .haven-benefits.features-section,
-.cribleplus-benefits.features-section,
-.wsai-benefits.features-section {
+.cribleplus-benefits.features-section {
     background: transparent;
     border: 0;
     box-shadow: none;
@@ -474,8 +472,7 @@ main.page-projects {
 @media (max-width: 900px) {
     .features-grid { grid-template-columns: 1fr; }
     .haven-benefits-grid,
-    .nexus-advantages-grid,
-    .wsai-features-grid { grid-template-columns: 1fr; }
+    .nexus-advantages-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
@@ -573,51 +570,6 @@ main.page-projects {
 <script src="../js/i18n.js"></script>
 <script>
 const projects = [
-    {
-        id: "ws-ai-platform",
-        title: "WS AI Platform",
-        image: "../assets/project-gallery/ws-ai-platform.png",
-        imageClass: "project-card__media--contain",
-        imageFallback: "../assets/projects/nexus-bridge/nexusbridge.png",
-        alt: "WS AI Platform — plateforme multi-agents",
-        description: "Plateforme d'intelligence artificielle multi-agents avec architecture modulaire. Automatisation et orchestration de tâches entre agents spécialisés, APIs et outils métier.",
-        technologies: ["Python", "FastAPI", "Multi-agents", "YAML", "REST", "Orchestration"],
-        template: `
-            <section class="page-hero">
-                <div class="project-card-badges" aria-label="Informations projet">
-                    <span class="badge badge-cat-type" data-translate>Plateforme</span>
-                    <span class="badge badge-cat-platform" data-translate>Serveur</span>
-                    <span class="badge badge-available" data-translate>Disponible</span>
-                </div>
-                <h1>WS AI Platform</h1>
-                <p class="lead" data-translate>WS AI Platform est une infrastructure multi-agents conçue pour coordonner des assistants spécialisés, des adaptateurs métier et des flux d'automatisation.</p>
-                <p class="lead" data-translate>L'architecture modulaire permet d'ajouter des agents, des routes API et des intégrations sans remettre en cause le cœur du système — id — al pour faire évoluer un produit intelligent étape par étape.</p>
-                <p class="lead" data-translate>La plateforme orchestre l'enfilement des tâches, le routage vers le bon agent et la remontée d'état — compétences clés en conception de systèmes IA et en automatisation.</p>
-            </section>
-
-            <section class="features-section wsai-benefits">
-                <h2 class="features-title" data-translate>Ce que démontre ce projet</h2>
-                <div class="features-grid wsai-features-grid">
-                    <article class="feature-card">
-                        <h3 data-translate>Architecture modulaire</h3>
-                        <p data-translate>Agents configurables, adaptateurs isolés et séparation claire entre orchestration, persistance et interfaces.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3 data-translate>Orchestration</h3>
-                        <p data-translate>Enfilement, claim et suivi de jobs — pattern robuste pour relier mobile, bridge et environnement de développement.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3 data-translate>APIs & intégrations</h3>
-                        <p data-translate>Exposition REST, configuration YAML et branchement d'outils externes (support, admin, automatisations).</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3 data-translate>Vision produit</h3>
-                        <p data-translate>Base réutilisable pour plusieurs projets (support jeu, supervision, prompts distants) sans dupliquer la logique.</p>
-                    </article>
-                </div>
-            </section>
-        `
-    },
     {
         id: "hk-crib-go",
         title: "HK Crib GO",
