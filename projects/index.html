@@ -197,6 +197,10 @@ main.page-projects {
 
 .project-card__actions {
     margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
 }
 
 .btn-learn-more {
@@ -621,6 +625,8 @@ const projects = [
         alt: "HK Crib GO — jeu de cribbage Android",
         description: "Application mobile Android : jeu de cribbage moderne avec IA de jeu, statistiques détaillées et support technique intégré pour une expérience complète.",
         technologies: ["Kotlin", "Android", "JavaScript", "Gradle", "WebView", "IA"],
+        downloadUrl: "https://github.com/francismanseau-oss/hk-crib-go-apk/releases/latest/download/HK-Crib-GO.apk",
+        downloadLabel: "Télécharger l'APK",
         template: `
             <section class="page-hero">
                 <div class="project-card-badges" aria-label="Informations projet">
@@ -759,6 +765,8 @@ const projects = [
         alt: "Haven — gestion intelligente des appels et notifications",
         description: "Application Android de gestion intelligente des appels et notifications. Automatisation basée sur des règles personnalisées selon votre contexte — travail, conduite, sommeil.",
         technologies: ["Kotlin", "Android", "R — gles", "Notifications", "Automatisation"],
+        downloadUrl: "https://github.com/francismanseau-oss/haven-apk/releases/latest/download/haven.apk",
+        downloadLabel: "Télécharger l'APK",
         template: `
             <section class="haven-summary-box">
                 <div class="project-card-badges" aria-label="Informations projet">
@@ -888,6 +896,17 @@ function createCard(project, index) {
     });
 
     actions.appendChild(btn);
+
+    if (project.downloadUrl) {
+        const download = document.createElement("a");
+        download.className = "btn-learn-more";
+        download.href = project.downloadUrl;
+        download.target = "_blank";
+        download.rel = "noopener noreferrer";
+        download.textContent = project.downloadLabel || "Télécharger l'APK";
+        actions.appendChild(download);
+    }
+
     body.append(title, desc, techWrap, actions);
     card.append(media, body);
     return card;
