@@ -707,8 +707,8 @@ const projects = [
         title: "Nexus (PC & Mobile)",
         image: "../assets/project-gallery/nexus-bridge.png",
         imageClass: "project-card__media--contain",
-        alt: "Nexus — console de supervision PC et mobile",
-        description: "Écosystème Mobile + Bridge PC + WSAI pour piloter Cursor en CLI à distance, avec orchestration multi-agents et relais de soutien technique.",
+        alt: "Nexus — Mobile et PC pour piloter Cursor à distance",
+        description: "Écosystème privé réunissant Nexus Mobile et Nexus PC pour piloter Virtuose/Cursor à distance, préserver le contexte récent des conversations et suivre l'exécution grâce au serveur WSAI.",
         technologies: ["Kotlin", "Python", "Android", "Windows", "REST", "Automatisation"],
         template: `
             <section class="page-hero">
@@ -718,13 +718,22 @@ const projects = [
                     <span class="badge badge-available" data-translate>Disponible</span>
                 </div>
                 <h1>Nexus (PC & Mobile)</h1>
-                <p class="lead" data-translate>Trois pièces liées : Nexus Mobile, Nexus Bridge PC et WSAI. Ensemble, elles permettent de piloter Cursor en mode CLI à distance — écrire depuis le téléphone, exécuter sur le PC, suivre le résultat sans rester devant l'écran.</p>
+                <p class="lead" data-translate>Nexus est un seul projet en deux interfaces : Nexus Mobile et Nexus PC. Ensemble, elles permettent de piloter Virtuose/Cursor à distance, de préserver le contexte récent des conversations et de suivre l'exécution.</p>
+                <p class="lead" data-translate>Le serveur WSAI reste en arrière-plan : il transporte et conserve les demandes dans sa file. Ce n'est pas un produit présenté séparément ici — la Console WSAI n'est pas encore prête à être montrée.</p>
             </section>
 
             <section class="nexus-pc-explain">
-                <h2 data-translate>1. Nexus Mobile</h2>
-                <p class="lead" data-translate>Nexus Mobile est la télécommande. Depuis le téléphone, vous envoyez des prompts (@admin), choisissez l'agent, suivez l'avancement et récupérez les réponses — même en LTE/5G, loin du bureau.</p>
-                <p class="lead" data-translate>C'est le point d'entrée humain du système : pas besoin d'ouvrir Cursor sur le PC pour démarrer une tâche.</p>
+                <h2 data-translate>Comment ça circule</h2>
+                <p class="lead" data-translate>Nexus Mobile permet d'envoyer les demandes et de suivre leur progression à distance.</p>
+                <p class="lead" data-translate>WSAI reçoit les demandes et les conserve dans sa file de traitement.</p>
+                <p class="lead" data-translate>Nexus PC récupère les demandes, les adapte à cursor-agent et communique avec Virtuose/Cursor.</p>
+                <p class="lead" data-translate>Nexus PC maintient la continuité des conversations en rattachant le conversationId et le contexte récent.</p>
+                <p class="lead" data-translate>Les réponses reviennent ensuite vers Nexus Mobile par le même parcours.</p>
+            </section>
+
+            <section class="nexus-pc-explain">
+                <h2 data-translate>Nexus Mobile</h2>
+                <p class="lead" data-translate>Interface Android pour écrire les demandes (@admin), choisir l'agent et suivre l'avancement — même en mobilité, sans ouvrir Cursor sur le PC.</p>
             </section>
 
             <section class="screenshots-section">
@@ -746,40 +755,32 @@ const projects = [
             </section>
 
             <section class="nexus-pc-explain">
-                <h2 data-translate>2. Nexus Bridge PC</h2>
-                <p class="lead" data-translate>Nexus Bridge PC est le centre de contrôle Windows. Sa raison d'être : lancer Cursor Agent en mode CLI sur le workspace choisi, quand un prompt arrive du mobile.</p>
-                <p class="lead" data-translate>Il affiche l'état (WSAI joignable, Cursor prêt), démarre ou arrête le bridge, et journalise la file des tâches — le moteur local du CLI distant.</p>
+                <h2 data-translate>Nexus PC</h2>
+                <p class="lead" data-translate>Centre de contrôle Windows : récupère les demandes via WSAI, les lance avec cursor-agent (CLI), rattache le conversationId et le contexte récent, puis renvoie le résultat vers le mobile.</p>
             </section>
 
             <figure class="hero-pc-shot">
-                <img src="../assets/projects/nexus/pc/nexus-bridge-control-center.png" alt="Nexus Bridge PC — Control Center" width="1600" height="1000" loading="lazy" decoding="async">
+                <img src="../assets/projects/nexus/pc/nexus-bridge-control-center.png" alt="Nexus PC — Control Center" width="1600" height="1000" loading="lazy" decoding="async">
             </figure>
 
-            <section class="nexus-pc-explain">
-                <h2 data-translate>3. WSAI</h2>
-                <p class="lead" data-translate>WSAI (WS AI Platform) n'est pas seulement le pont entre Nexus Mobile et Nexus Bridge PC. C'est la plateforme multi-agents qui orchestre le trafic : routage des prompts, file de travail, états et réponses.</p>
-                <p class="lead" data-translate>Elle sert aussi d'autres canaux — par exemple le relais de communication pour le soutien technique (tickets joueur, accusés, réponses d'agents comme Mia et Kenji), sans passer par l'écran Cursor.</p>
-                <p class="lead" data-translate>En résumé : Mobile commande, Bridge exécute le CLI, WSAI coordonne et étend le même cerveau à d'autres usages (support, agents spécialisés).</p>
-            </section>
-
             <section class="features-section">
-                <h2 class="features-title" data-translate>Ce que démontre cet écosystème</h2>
+                <h2 class="features-title" data-translate>Ce que démontre Nexus</h2>
                 <div class="features-grid nexus-advantages-grid">
                     <article class="feature-card">
-                        <h3 data-translate>CLI Cursor à distance</h3>
-                        <p data-translate>Le besoin réel du setup : travailler avec Cursor Agent sans être devant le PC.</p>
+                        <h3 data-translate>Un projet, deux faces</h3>
+                        <p data-translate>Mobile pour commander et suivre ; PC pour exécuter Cursor en CLI sur le workspace.</p>
                     </article>
                     <article class="feature-card">
-                        <h3 data-translate>Mobile natif</h3>
-                        <p data-translate>Application Android pour piloter, choisir un agent et suivre le fil en mobilité.</p>
+                        <h3 data-translate>Continuité des conversations</h3>
+                        <p data-translate>conversationId et contexte récent conservés pour reprendre le fil sans recommencer à zéro.</p>
                     </article>
                     <article class="feature-card">
-                        <h3 data-translate>Bridge Windows</h3>
-                        <p data-translate>Service local stable : workspace, démarrage, journal et santé du lien Cursor.</p>
+                        <h3 data-translate>File en arrière-plan</h3>
+                        <p data-translate>WSAI transporte et conserve les demandes — invisible côté vitrine, essentiel au parcours.</p>
                     </article>
                     <article class="feature-card">
-                        <h3 data-translate>Plateforme multi-usage</h3>
-                        <p data-translate>WSAI orchestre le pont Nexus et d'autres flux (soutien technique, agents métier).</p>
+                        <h3 data-translate>Boucle complète</h3>
+                        <p data-translate>Demande mobile → file → exécution PC → réponse mobile, sans rester devant l'écran.</p>
                     </article>
                 </div>
             </section>
@@ -789,9 +790,9 @@ const projects = [
         id: "haven",
         title: "Haven",
         image: "../assets/project-gallery/haven.png",
-        alt: "Haven — gestion intelligente des appels et notifications",
-        description: "Application Android de gestion intelligente des appels et notifications. Automatisation basée sur des règles personnalisées selon votre contexte — travail, conduite, sommeil.",
-        technologies: ["Kotlin", "Android", "R — gles", "Notifications", "Automatisation"],
+        alt: "Haven — gestion intelligente des appels, notifications, messages et courriels",
+        description: "Application Android de gestion intelligente des appels, notifications, messages texte et courriels. Automatisation basée sur des règles personnalisées selon votre contexte — travail, conduite ou sommeil.",
+        technologies: ["Kotlin", "Android", "Règles", "Notifications", "Automatisation"],
         downloadUrl: "https://github.com/francismanseau-oss/haven-apk/releases/latest/download/haven.apk",
         downloadLabel: "Télécharger l'APK",
         template: `
@@ -803,7 +804,7 @@ const projects = [
                 </div>
                 <h1>Haven</h1>
                 <p class="haven-subtitle" data-translate>Réappropriez-vous votre tranquillité d'esprit.</p>
-                <p class="lead" data-translate>Reprenez le contrôle total de vos appels téléphoniques, SMS, courriels et notifications.</p>
+                <p class="lead" data-translate>Application Android de gestion intelligente des appels, notifications, messages texte et courriels. Automatisation basée sur des règles personnalisées selon votre contexte — travail, conduite ou sommeil.</p>
                 <p class="lead" data-translate>Configurez Haven une seule fois selon vos préférences, puis laissez-le travailler automatiquement en arrière-plan selon vos horaires et votre contexte.</p>
                 <p class="project-download-cta">
                     <a class="btn-learn-more" href="https://github.com/francismanseau-oss/haven-apk/releases/latest/download/haven.apk" target="_blank" rel="noopener noreferrer" data-translate>Télécharger l'APK (Android)</a>
@@ -835,7 +836,7 @@ const projects = [
                     </article>
                     <article class="feature-card">
                         <h3 data-translate>Contexte scolaire</h3>
-                        <p data-translate>R — gles par plages horaires pour réduire les distractions en classe et les réactiver aux pauses.</p>
+                        <p data-translate>Règles par plages horaires pour réduire les distractions en classe et les réactiver aux pauses.</p>
                     </article>
                     <article class="feature-card">
                         <h3 data-translate>Sommeil sans inquiétude</h3>
