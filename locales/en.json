@@ -1,5 +1,5 @@
 {
-  "studioName": "Weidler Studio",
+  "studioName": "Francis Manseau",
   "tagline": "Create. Solve. Connect.",
   "nav": {
     "home": "Home",
@@ -13,6 +13,12 @@
     "development": "In development",
     "soon": "Coming soon",
     "tool": "Tool"
+  },
+  "home": {
+    "subtitle": "Designer of digital solutions through artificial intelligence orchestration",
+    "lead": "I do not code directly. I analyze needs, design the architecture and features, then direct the artificial intelligence tools that produce the code. I supervise, test, and refine every result until we obtain a functional, reliable, and evolvable product.",
+    "cta": "Discover my projects →",
+    "metaDescription": "Portfolio of Francis Manseau, designer of digital solutions through AI orchestration. Design, direction, supervision, and validation of Android products and automated systems."
   },
   "footer": {
     "copyright": ""

@@ -14,6 +14,12 @@
     "cta": "Baixar a demo",
     "visualLabel": "Terre Libre — Prévia"
   },
+  "home": {
+    "subtitle": "Conceptor de soluções digitais por orquestração da inteligência artificial",
+    "lead": "Não programo diretamente. Analiso as necessidades, concebo a arquitetura e as funcionalidades, e depois dirijo as ferramentas de inteligência artificial que realizam o código. Superviso, testo e melhoro cada resultado até obter um produto funcional, fiável e evolutivo.",
+    "cta": "Descobrir os meus projetos →",
+    "metaDescription": "Portfolio de Francis Manseau, conceptor de soluções digitais por orquestração de IA. Conceção, direção, supervisão e validação de produtos Android e sistemas automatizados."
+  },
   "discussion": {
     "title": "Discussão da comunidade",
     "subtitle": "Compartilhe suas ideias — sem cadastro.",

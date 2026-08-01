@@ -42,6 +42,10 @@
     "empty": "Aucun commentaire pour l'instant. Soyez le premier !"
   },
   "home": {
+    "subtitle": "Concepteur de solutions numériques par orchestration de l'intelligence artificielle",
+    "lead": "Je ne code pas directement. J'analyse les besoins, conçois l'architecture et les fonctionnalités, puis je dirige les outils d'intelligence artificielle qui réalisent le code. Je supervise, teste et améliore chaque résultat jusqu'à l'obtention d'un produit fonctionnel, fiable et évolutif.",
+    "cta": "Découvrir mes projets →",
+    "metaDescription": "Portfolio de Francis Manseau, concepteur de solutions numériques par orchestration IA. Conception, direction, supervision et validation de produits Android et de systèmes automatisés.",
     "contactLead": "Un projet, une collaboration ou une question — je vous réponds avec plaisir."
   },
   "footer": {

@@ -14,6 +14,12 @@
     "cta": "Descargar la demo",
     "visualLabel": "Terre Libre — Vista previa"
   },
+  "home": {
+    "subtitle": "Diseñador de soluciones digitales mediante la orquestación de la inteligencia artificial",
+    "lead": "No programo directamente. Analizo las necesidades, concibo la arquitectura y las funcionalidades, y luego dirijo las herramientas de inteligencia artificial que realizan el código. Superviso, pruebo y mejoro cada resultado hasta obtener un producto funcional, fiable y evolutivo.",
+    "cta": "Descubrir mis proyectos →",
+    "metaDescription": "Portfolio de Francis Manseau, diseñador de soluciones digitales mediante orquestación de IA. Concepción, dirección, supervisión y validación de productos Android y sistemas automatizados."
+  },
   "discussion": {
     "title": "Discusión comunitaria",
     "subtitle": "Comparte tus ideas — no se requiere registro.",
