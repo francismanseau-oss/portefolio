@@ -421,6 +421,55 @@ main.page-projects {
     transform: none;
 }
 
+/* HK Crib GO : 2 paysages empilés à gauche, Support portrait à droite */
+.screenshots-grid--hk {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.7fr);
+    align-items: center;
+    justify-items: stretch;
+    max-width: 720px;
+    margin-inline: auto;
+    gap: clamp(14px, 3vw, 22px);
+}
+
+.screenshots-stack {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 2vw, 14px);
+    min-width: 0;
+}
+
+.screenshots-grid--hk .screenshot-card--landscape {
+    max-width: none;
+    width: 100%;
+}
+
+.screenshots-grid--hk .screenshot-card--landscape img {
+    max-height: none;
+    width: 100%;
+    height: auto;
+}
+
+.screenshots-grid--hk .screenshot-card--portrait {
+    max-width: 200px;
+    justify-self: end;
+    align-self: center;
+}
+
+.screenshots-grid--hk .screenshot-card--portrait img {
+    max-height: 440px;
+}
+
+@media (max-width: 640px) {
+    .screenshots-grid--hk {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    .screenshots-grid--hk .screenshot-card--portrait {
+        justify-self: center;
+        max-width: 180px;
+    }
+}
+
 .screenshot-card figcaption {
     padding: 8px 6px 0;
     font-size: 0.78rem;
@@ -430,10 +479,10 @@ main.page-projects {
 }
 
 @media (max-width: 640px) {
-    .screenshots-grid,
-    .screenshots-grid:has(> :nth-child(3):last-child),
-    .screenshots-grid:has(> :nth-child(5):last-child),
-    .screenshots-grid:has(> :nth-child(6):last-child) {
+    .screenshots-grid:not(.screenshots-grid--hk),
+    .screenshots-grid:not(.screenshots-grid--hk):has(> :nth-child(3):last-child),
+    .screenshots-grid:not(.screenshots-grid--hk):has(> :nth-child(5):last-child),
+    .screenshots-grid:not(.screenshots-grid--hk):has(> :nth-child(6):last-child) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .screenshot-card { max-width: 160px; }
@@ -694,15 +743,17 @@ const projects = [
 
             <section class="screenshots-section">
                 <h2 class="screenshots-title" data-translate>Aperçu du jeu</h2>
-                <div class="screenshots-grid">
-                    <figure class="screenshot-card screenshot-card--landscape">
-                        <img src="../assets/projects/cribleplus/partie-en-cours.png" alt="HK Crib GO — Partie en cours contre l'IA" width="1024" height="460" loading="lazy" decoding="async">
-                        <figcaption data-translate>Partie en cours — plateau et score</figcaption>
-                    </figure>
-                    <figure class="screenshot-card screenshot-card--landscape">
-                        <img src="../assets/projects/cribleplus/menu-parametres.png" alt="HK Crib GO — Menu paramètres et aide" width="1024" height="460" loading="lazy" decoding="async">
-                        <figcaption data-translate>Menu — paramètres et aide</figcaption>
-                    </figure>
+                <div class="screenshots-grid screenshots-grid--hk">
+                    <div class="screenshots-stack">
+                        <figure class="screenshot-card screenshot-card--landscape">
+                            <img src="../assets/projects/cribleplus/partie-en-cours.png" alt="HK Crib GO — Partie en cours contre l'IA" width="1024" height="460" loading="lazy" decoding="async">
+                            <figcaption data-translate>Partie en cours — plateau et score</figcaption>
+                        </figure>
+                        <figure class="screenshot-card screenshot-card--landscape">
+                            <img src="../assets/projects/cribleplus/menu-parametres.png" alt="HK Crib GO — Menu paramètres et aide" width="1024" height="460" loading="lazy" decoding="async">
+                            <figcaption data-translate>Menu — paramètres et aide</figcaption>
+                        </figure>
+                    </div>
                     <figure class="screenshot-card screenshot-card--portrait">
                         <img src="../assets/projects/cribleplus/support-centre.png" alt="HK Crib GO — Centre de support technique" width="460" height="1024" loading="lazy" decoding="async">
                         <figcaption data-translate>Centre Support — ticket technique</figcaption>
