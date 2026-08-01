@@ -392,6 +392,14 @@ main.page-projects {
     max-width: 220px;
 }
 
+.screenshot-card--landscape {
+    max-width: min(100%, 420px);
+}
+
+.screenshot-card--portrait {
+    max-width: 220px;
+}
+
 .screenshot-card img {
     width: 100%;
     height: auto;
@@ -401,6 +409,16 @@ main.page-projects {
     margin: 0 auto;
     border-radius: 14px;
     border: 1px solid var(--border);
+}
+
+.screenshot-card--landscape img {
+    max-height: 240px;
+}
+
+.screenshot-card--portrait img {
+    max-height: 420px;
+    /* garde la page Support en portrait, sans rotation */
+    transform: none;
 }
 
 .screenshot-card figcaption {
@@ -677,17 +695,17 @@ const projects = [
             <section class="screenshots-section">
                 <h2 class="screenshots-title" data-translate>Aperçu du jeu</h2>
                 <div class="screenshots-grid">
-                    <figure class="screenshot-card">
-                        <img src="../assets/projects/cribleplus/debut%20round.png" alt="HK Crib GO — Début de manche" width="400" height="800" loading="lazy" decoding="async">
-                        <figcaption data-translate>Début de manche</figcaption>
+                    <figure class="screenshot-card screenshot-card--landscape">
+                        <img src="../assets/projects/cribleplus/partie-en-cours.png" alt="HK Crib GO — Partie en cours contre l'IA" width="1024" height="460" loading="lazy" decoding="async">
+                        <figcaption data-translate>Partie en cours — plateau et score</figcaption>
                     </figure>
-                    <figure class="screenshot-card">
-                        <img src="../assets/projects/cribleplus/comptage%20des%20points.png" alt="HK Crib GO — Comptage des points" width="400" height="800" loading="lazy" decoding="async">
-                        <figcaption data-translate>Comptage des points</figcaption>
+                    <figure class="screenshot-card screenshot-card--landscape">
+                        <img src="../assets/projects/cribleplus/menu-parametres.png" alt="HK Crib GO — Menu paramètres et aide" width="1024" height="460" loading="lazy" decoding="async">
+                        <figcaption data-translate>Menu — paramètres et aide</figcaption>
                     </figure>
-                    <figure class="screenshot-card">
-                        <img src="../assets/projects/cribleplus/5%20mode%20cpu.png" alt="HK Crib GO — Modes adversaire" width="400" height="800" loading="lazy" decoding="async">
-                        <figcaption data-translate>Cinq niveaux d'adversaire</figcaption>
+                    <figure class="screenshot-card screenshot-card--portrait">
+                        <img src="../assets/projects/cribleplus/support-centre.png" alt="HK Crib GO — Centre de support technique" width="460" height="1024" loading="lazy" decoding="async">
+                        <figcaption data-translate>Centre Support — ticket technique</figcaption>
                     </figure>
                 </div>
             </section>
