@@ -434,6 +434,37 @@ main.page-projects {
 
 .hero-app-shot img { display: block; width: 100%; height: auto; }
 
+.hero-pc-shot {
+    margin: 0 0 clamp(20px, 4vw, 28px);
+    max-width: 100%;
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--glow-cyan);
+    background: var(--bg-card);
+}
+
+.hero-pc-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.nexus-pc-explain {
+    margin: 0 0 clamp(28px, 5vw, 40px);
+}
+
+.nexus-pc-explain h2 {
+    margin: 0 0 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: .82rem;
+}
+
+.nexus-pc-explain .lead { margin-bottom: 12px; }
+.nexus-pc-explain .lead:last-child { margin-bottom: 0; }
+
 /* Haven */
 .haven-summary-box {
     padding: 32px;
@@ -677,66 +708,79 @@ const projects = [
         image: "../assets/project-gallery/nexus-bridge.png",
         imageClass: "project-card__media--contain",
         alt: "Nexus — console de supervision PC et mobile",
-        description: "Console personnelle de supervision sur PC et mobile. Surveillance des ressources système, automatisation et administration — distance depuis n'importe où.",
+        description: "Écosystème Mobile + Bridge PC + WSAI pour piloter Cursor en CLI à distance, avec orchestration multi-agents et relais de soutien technique.",
         technologies: ["Kotlin", "Python", "Android", "Windows", "REST", "Automatisation"],
         template: `
             <section class="page-hero">
                 <div class="project-card-badges" aria-label="Informations projet">
-                    <span class="badge badge-cat-type" data-translate>Console</span>
+                    <span class="badge badge-cat-type" data-translate>Écosystème</span>
                     <span class="badge badge-cat-platform" data-translate>PC & Mobile</span>
                     <span class="badge badge-available" data-translate>Disponible</span>
                 </div>
                 <h1>Nexus (PC & Mobile)</h1>
-                <p class="lead" data-translate>Nexus est une console personnelle de supervision qui relie votre téléphone — votre environnement de travail : métriques machine, agents, prompts distants et automatisation.</p>
-                <p class="lead" data-translate>Depuis l'application mobile, vous pilotez des tâches, suivez l'état du système et recevez les retours en temps réel — sans rester devant le PC.</p>
-                <p class="lead" data-translate>Le bridge PC assure la connexion bidirectionnelle avec Cursor et WS AI Platform, démontrant des compétences full-stack, mobile native et ops.</p>
+                <p class="lead" data-translate>Trois pièces liées : Nexus Mobile, Nexus Bridge PC et WSAI. Ensemble, elles permettent de piloter Cursor en mode CLI à distance — écrire depuis le téléphone, exécuter sur le PC, suivre le résultat sans rester devant l'écran.</p>
             </section>
 
-            <figure class="hero-app-shot">
-                <img src="../assets/projects/nexus/mobile/05-chat-plan.jpg" alt="Nexus Mobile — brainstorm Virtuose (@admin) : persistance conversationId, reprise session Cursor" width="1080" height="2340" loading="lazy" decoding="async">
-            </figure>
-
-            <section class="features-section">
-                <h2 class="features-title" data-translate>Ce que démontre Nexus</h2>
-                <div class="features-grid nexus-advantages-grid">
-                    <article class="feature-card">
-                        <h3 data-translate>Supervision système</h3>
-                        <p data-translate>Capteurs machine, santé runtime et alertes — visibilité ops depuis mobile ou desktop.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3 data-translate>Administration à distance</h3>
-                        <p data-translate>Envoi de prompts, suivi de jobs et récupération des résultats où que vous soyez.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3 data-translate>Automatisation</h3>
-                        <p data-translate>Orchestration entre mobile, bridge et agents — moins d'allers-retours manuels.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3 data-translate>Écosystème cohérent</h3>
-                        <p data-translate>Application Android, service Windows et APIs alignés sur une même architecture produit.</p>
-                    </article>
-                </div>
+            <section class="nexus-pc-explain">
+                <h2 data-translate>1. Nexus Mobile</h2>
+                <p class="lead" data-translate>Nexus Mobile est la télécommande. Depuis le téléphone, vous envoyez des prompts (@admin), choisissez l'agent, suivez l'avancement et récupérez les réponses — même en LTE/5G, loin du bureau.</p>
+                <p class="lead" data-translate>C'est le point d'entrée humain du système : pas besoin d'ouvrir Cursor sur le PC pour démarrer une tâche.</p>
             </section>
 
             <section class="screenshots-section">
-                <h2 class="screenshots-title" data-translate>Aperçu mobile</h2>
+                <h2 class="screenshots-title" data-translate>Aperçu Nexus Mobile</h2>
                 <div class="screenshots-grid">
                     <figure class="screenshot-card">
-                        <img src="../assets/projects/nexus/mobile/04-chat-mission.jpg" alt="Nexus — gestion de session Cursor expirée, Phase 4" width="1080" height="2340" loading="lazy" decoding="async">
-                        <figcaption data-translate>Reprise de session — message clair si fil Cursor expiré</figcaption>
+                        <img src="../assets/projects/nexus/mobile/04-chat-mission.jpg" alt="Nexus Mobile — chat mission et session Cursor" width="1080" height="2340" loading="lazy" decoding="async">
+                        <figcaption data-translate>Chat mission — envoi et suivi à distance</figcaption>
                     </figure>
                     <figure class="screenshot-card">
-                        <img src="../assets/projects/nexus/mobile/02-agents.jpg" alt="Nexus — menu agents WS AI (Virtuose, Mia, Kenji…)" width="1080" height="2340" loading="lazy" decoding="async">
-                        <figcaption data-translate>Routage multi-agents (@admin, orchestration, support)</figcaption>
+                        <img src="../assets/projects/nexus/mobile/02-agents.jpg" alt="Nexus Mobile — menu agents" width="1080" height="2340" loading="lazy" decoding="async">
+                        <figcaption data-translate>Choix d'agent (Virtuose, Mia, Kenji…)</figcaption>
                     </figure>
                     <figure class="screenshot-card">
-                        <img src="../assets/projects/nexus/mobile/03-dashboard.jpg" alt="Console WSAI — tableau de bord santé machine" width="1080" height="2340" loading="lazy" decoding="async">
-                        <figcaption data-translate>Console WSAI — CPU, RAM, SSD et services en direct</figcaption>
+                        <img src="../assets/projects/nexus/mobile/01-options.jpg" alt="Nexus Mobile — options et Wake-on-LAN" width="1080" height="2340" loading="lazy" decoding="async">
+                        <figcaption data-translate>Options — réveil PC et préférences</figcaption>
                     </figure>
-                    <figure class="screenshot-card">
-                        <img src="../assets/projects/nexus/mobile/01-options.jpg" alt="Nexus — options Wake-on-LAN et préférences mobile" width="1080" height="2340" loading="lazy" decoding="async">
-                        <figcaption data-translate>Options — réveil PC à distance et préférences d'affichage</figcaption>
-                    </figure>
+                </div>
+            </section>
+
+            <section class="nexus-pc-explain">
+                <h2 data-translate>2. Nexus Bridge PC</h2>
+                <p class="lead" data-translate>Nexus Bridge PC est le centre de contrôle Windows. Sa raison d'être : lancer Cursor Agent en mode CLI sur le workspace choisi, quand un prompt arrive du mobile.</p>
+                <p class="lead" data-translate>Il affiche l'état (WSAI joignable, Cursor prêt), démarre ou arrête le bridge, et journalise la file des tâches — le moteur local du CLI distant.</p>
+            </section>
+
+            <figure class="hero-pc-shot">
+                <img src="../assets/projects/nexus/pc/nexus-bridge-control-center.png" alt="Nexus Bridge PC — Control Center" width="1600" height="1000" loading="lazy" decoding="async">
+            </figure>
+
+            <section class="nexus-pc-explain">
+                <h2 data-translate>3. WSAI</h2>
+                <p class="lead" data-translate>WSAI (WS AI Platform) n'est pas seulement le pont entre Nexus Mobile et Nexus Bridge PC. C'est la plateforme multi-agents qui orchestre le trafic : routage des prompts, file de travail, états et réponses.</p>
+                <p class="lead" data-translate>Elle sert aussi d'autres canaux — par exemple le relais de communication pour le soutien technique (tickets joueur, accusés, réponses d'agents comme Mia et Kenji), sans passer par l'écran Cursor.</p>
+                <p class="lead" data-translate>En résumé : Mobile commande, Bridge exécute le CLI, WSAI coordonne et étend le même cerveau à d'autres usages (support, agents spécialisés).</p>
+            </section>
+
+            <section class="features-section">
+                <h2 class="features-title" data-translate>Ce que démontre cet écosystème</h2>
+                <div class="features-grid nexus-advantages-grid">
+                    <article class="feature-card">
+                        <h3 data-translate>CLI Cursor à distance</h3>
+                        <p data-translate>Le besoin réel du setup : travailler avec Cursor Agent sans être devant le PC.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Mobile natif</h3>
+                        <p data-translate>Application Android pour piloter, choisir un agent et suivre le fil en mobilité.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Bridge Windows</h3>
+                        <p data-translate>Service local stable : workspace, démarrage, journal et santé du lien Cursor.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 data-translate>Plateforme multi-usage</h3>
+                        <p data-translate>WSAI orchestre le pont Nexus et d'autres flux (soutien technique, agents métier).</p>
+                    </article>
                 </div>
             </section>
         `
