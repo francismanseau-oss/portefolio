@@ -19,7 +19,7 @@
 
 <style>
 :root {
-    --card-width: min(760px, 88vw);
+    --card-width: 100%;
     --card-gap: 24px;
 }
 
@@ -65,18 +65,19 @@ main.page-projects {
 /* -- Carrousel portfolio -- */
 
 .projects-showcase {
-    width: min(880px, 94%);
+    width: min(760px, 92%);
     margin: 0 auto;
 }
 
 .showcase-carousel {
     display: grid;
-    grid-template-columns: 48px 1fr 48px;
+    grid-template-columns: 46px minmax(0, 1fr) 46px;
     align-items: center;
     gap: 12px;
 }
 
 .showcase-viewport {
+    width: 100%;
     overflow: hidden;
     padding: 8px 0 20px;
 }
@@ -91,8 +92,6 @@ main.page-projects {
 
 .project-card {
     flex: 0 0 var(--card-width);
-    display: flex;
-    flex-direction: column;
     border-radius: 20px;
     border: 1px solid var(--border);
     background: var(--bg-card);
@@ -550,6 +549,7 @@ main.page-projects {
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
+    margin-top: clamp(24px, 4vw, 32px);
     margin-bottom: clamp(32px, 6vw, 48px);
 }
 
@@ -606,34 +606,14 @@ main.page-projects {
 
 @media (max-width: 640px) {
     .showcase-carousel {
-        position: relative;
-        display: block;
-    }
-
-    .showcase-viewport {
-        width: 100%;
+        grid-template-columns: 36px minmax(0, 1fr) 36px;
+        gap: 8px;
     }
 
     .showcase-arrow {
-        position: absolute;
-        top: 50%;
-        z-index: 3;
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
         font-size: 20px;
-        transform: translateY(-50%);
-    }
-
-    .showcase-arrow[data-direction="-1"] {
-        left: -6px;
-    }
-
-    .showcase-arrow[data-direction="1"] {
-        right: -6px;
-    }
-
-    .showcase-arrow:hover {
-        transform: translateY(-50%) scale(1.04);
     }
 
     .project-card {
@@ -650,6 +630,10 @@ main.page-projects {
     .screenshots-section,
     .haven-summary-box {
         padding: clamp(18px, 4vw, 22px);
+    }
+
+    .haven-shots {
+        margin-top: clamp(20px, 5vw, 28px);
     }
 }
 </style>
@@ -966,64 +950,7 @@ function createCard(project, index) {
         }, { once: true });
     }
     media.appendChild(img);
-
-    const body = document.createElement("div");
-    body.className = "project-card__body";
-
-    const title = document.createElement("h2");
-    title.className = "project-card__title";
-    title.textContent = project.title;
-
-    const desc = document.createElement("p");
-    desc.className = "project-card__desc";
-    desc.textContent = project.description;
-
-    const techWrap = document.createElement("div");
-    techWrap.className = "project-card__tech";
-    techWrap.setAttribute("aria-label", "Technologies utilisées dans la réalisation");
-
-    const techLabel = document.createElement("p");
-    techLabel.className = "project-card__tech-label";
-    techLabel.textContent = "Technologies utilisées dans la réalisation :";
-
-    const techList = document.createElement("div");
-    techList.className = "project-card__tech-list";
-    project.technologies.forEach(function (tech) {
-        const tag = document.createElement("span");
-        tag.className = "tech-tag";
-        tag.textContent = tech;
-        techList.appendChild(tag);
-    });
-    techWrap.append(techLabel, techList);
-
-    const actions = document.createElement("div");
-    actions.className = "project-card__actions";
-
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "btn-learn-more";
-    btn.textContent = "En savoir plus";
-    btn.addEventListener("click", function () {
-        if (index !== currentIndex) {
-            goToProject(index, false);
-        }
-        openDetail(index);
-    });
-
-    actions.appendChild(btn);
-
-    if (project.downloadUrl) {
-        const download = document.createElement("a");
-        download.className = "btn-learn-more";
-        download.href = project.downloadUrl;
-        download.target = "_blank";
-        download.rel = "noopener noreferrer";
-        download.textContent = project.downloadLabel || "Télécharger l'APK";
-        actions.appendChild(download);
-    }
-
-    body.append(title, desc, techWrap, actions);
-    card.append(media, body);
+    card.appendChild(media);
     return card;
 }
 
@@ -1075,6 +1002,7 @@ function renderCarousel() {
     track.appendChild(lastClone);
 
     renderDots();
+    renderProjectDetail(currentIndex);
     requestAnimationFrame(updateTrackPosition);
 }
 
@@ -1090,15 +1018,16 @@ function updateActiveCard() {
 function goToProject(index, openDetails) {
     if (isAnimating || index === currentIndex) return;
     isAnimating = true;
+    detail.style.opacity = "0";
 
     currentIndex = ((index % projects.length) + projects.length) % projects.length;
     visualIndex = currentIndex + 1;
     updateActiveCard();
     updateTrackPosition();
-
-    if (openDetails) {
-        openDetail(currentIndex);
-    }
+    renderProjectDetail(currentIndex);
+    requestAnimationFrame(function () {
+        detail.style.opacity = "1";
+    });
 
     setTimeout(function () {
         isAnimating = false;
@@ -1108,10 +1037,15 @@ function goToProject(index, openDetails) {
 function changeProject(direction) {
     if (isAnimating) return;
     isAnimating = true;
+    detail.style.opacity = "0";
 
     currentIndex = (currentIndex + direction + projects.length) % projects.length;
     visualIndex += direction;
     updateActiveCard();
+    renderProjectDetail(currentIndex);
+    requestAnimationFrame(function () {
+        detail.style.opacity = "1";
+    });
 
     if (visualIndex === 0 || visualIndex === projects.length + 1) {
         const clone = visualIndex === 0 ? track.firstElementChild : track.lastElementChild;
@@ -1133,15 +1067,9 @@ function changeProject(direction) {
     }, 480);
 }
 
-function openDetail(index) {
+function renderProjectDetail(index) {
     detail.hidden = false;
-    detail.style.opacity = "0";
     detail.innerHTML = projects[index].template;
-
-    requestAnimationFrame(function () {
-        detail.style.opacity = "1";
-        detail.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
 }
 
 arrows.forEach(function (arrow) {
