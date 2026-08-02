@@ -294,6 +294,113 @@ main.page-projects {
     display: none;
 }
 
+/* -- Information avant téléchargement d'un APK -- */
+
+.apk-download-dialog {
+    --apk-warning: #b77b00;
+    --apk-warning: color-mix(in srgb, #e5a91a 72%, var(--text));
+    width: min(520px, calc(100% - 32px));
+    padding: 0;
+    border: 1px solid color-mix(in srgb, var(--apk-warning) 62%, transparent);
+    border-radius: 18px;
+    background: var(--bg-card);
+    color: var(--text);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42), 0 0 28px color-mix(in srgb, var(--apk-warning) 18%, transparent);
+}
+
+.apk-download-dialog::backdrop {
+    background: rgba(2, 6, 18, 0.76);
+    backdrop-filter: blur(5px);
+}
+
+.apk-download-dialog__content {
+    position: relative;
+    padding: clamp(24px, 5vw, 34px);
+    text-align: left;
+}
+
+.apk-download-dialog__close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.apk-download-dialog__close:hover {
+    background: rgba(148, 163, 184, 0.12);
+    color: var(--text);
+}
+
+.apk-download-dialog__eyebrow {
+    margin: 0 42px 8px 0;
+    color: var(--apk-warning);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.apk-download-dialog h2 {
+    margin: 0 42px 16px 0;
+    font-size: clamp(1.35rem, 4vw, 1.7rem);
+    line-height: 1.25;
+}
+
+.apk-download-dialog p {
+    margin: 0 0 14px;
+    color: var(--lead-color);
+    line-height: 1.68;
+}
+
+.apk-download-dialog__note {
+    padding: 12px 14px;
+    border-left: 3px solid var(--apk-warning);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--apk-warning) 11%, transparent);
+    color: var(--apk-warning) !important;
+    font-weight: 650;
+}
+
+.apk-download-dialog__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.apk-download-dialog__cancel,
+.apk-download-dialog__continue {
+    min-height: 44px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.apk-download-dialog__cancel {
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+}
+
+.apk-download-dialog__continue {
+    border: 1px solid var(--btn-primary-border);
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-color);
+    text-decoration: none;
+}
+
 .page-hero,
 .features-section,
 .screenshots-section {
@@ -699,6 +806,21 @@ main.page-projects {
     <section class="project-detail" id="projectDetail" hidden aria-live="polite"></section>
 </main>
 
+<dialog class="apk-download-dialog" id="apkDownloadDialog" aria-labelledby="apkDownloadTitle">
+    <div class="apk-download-dialog__content">
+        <button class="apk-download-dialog__close" id="apkDownloadClose" type="button" aria-label="Fermer">×</button>
+        <p class="apk-download-dialog__eyebrow">⚠ À lire avant de continuer</p>
+        <h2 id="apkDownloadTitle">Information avant le téléchargement</h2>
+        <p>Cette application est distribuée directement par Francis Manseau, en dehors de Google Play. Android ou votre navigateur peut donc afficher un avertissement de sécurité.</p>
+        <p class="apk-download-dialog__note">Cet avertissement ne signifie pas qu’un virus a été détecté. Il indique que l’APK provient d’une source externe à Google Play.</p>
+        <p>Conservez Play Protect activé. Si vous le souhaitez, vous pouvez également faire analyser le fichier avec Windows Defender ou l’outil antivirus de votre choix avant l’installation.</p>
+        <div class="apk-download-dialog__actions">
+            <button class="apk-download-dialog__cancel" id="apkDownloadCancel" type="button">Annuler</button>
+            <a class="apk-download-dialog__continue" id="apkDownloadContinue" href="#" target="_blank" rel="noopener noreferrer">Continuer le téléchargement</a>
+        </div>
+    </div>
+</dialog>
+
 
 <script src="../js/nav.js"></script>
 <script src="../js/mobile-nav.js"></script>
@@ -927,6 +1049,34 @@ const dotsContainer = document.getElementById("showcaseDots");
 const viewport = document.querySelector(".showcase-viewport");
 const detail = document.getElementById("projectDetail");
 const arrows = document.querySelectorAll(".showcase-arrow");
+const apkDownloadDialog = document.getElementById("apkDownloadDialog");
+const apkDownloadClose = document.getElementById("apkDownloadClose");
+const apkDownloadCancel = document.getElementById("apkDownloadCancel");
+const apkDownloadContinue = document.getElementById("apkDownloadContinue");
+
+document.addEventListener("click", function (event) {
+    const downloadLink = event.target.closest('a[href*=".apk"]');
+    if (!downloadLink || downloadLink === apkDownloadContinue) return;
+
+    event.preventDefault();
+    apkDownloadContinue.href = downloadLink.href;
+
+    if (typeof apkDownloadDialog.showModal === "function") {
+        apkDownloadDialog.showModal();
+    } else if (window.confirm("Cette application est distribuée en dehors de Google Play. Android peut afficher un avertissement de sécurité. Continuer le téléchargement ?")) {
+        window.open(downloadLink.href, "_blank", "noopener,noreferrer");
+    }
+});
+
+function closeApkDownloadDialog() {
+    apkDownloadDialog.close();
+}
+
+apkDownloadClose.addEventListener("click", closeApkDownloadDialog);
+apkDownloadCancel.addEventListener("click", closeApkDownloadDialog);
+apkDownloadContinue.addEventListener("click", function () {
+    apkDownloadDialog.close();
+});
 
 function createCard(project, index) {
     const card = document.createElement("article");
