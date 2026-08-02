@@ -19,7 +19,7 @@
 
 <style>
 :root {
-    --card-width: min(720px, 88vw);
+    --card-width: min(760px, 88vw);
     --card-gap: 24px;
 }
 
@@ -65,7 +65,7 @@ main.page-projects {
 /* -- Carrousel portfolio -- */
 
 .projects-showcase {
-    width: min(840px, 94%);
+    width: min(880px, 94%);
     margin: 0 auto;
 }
 
@@ -606,14 +606,38 @@ main.page-projects {
 
 @media (max-width: 640px) {
     .showcase-carousel {
-        grid-template-columns: 40px 1fr 40px;
-        gap: 8px;
+        position: relative;
+        display: block;
+    }
+
+    .showcase-viewport {
+        width: 100%;
     }
 
     .showcase-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 3;
         width: 40px;
         height: 40px;
         font-size: 20px;
+        transform: translateY(-50%);
+    }
+
+    .showcase-arrow[data-direction="-1"] {
+        left: -6px;
+    }
+
+    .showcase-arrow[data-direction="1"] {
+        right: -6px;
+    }
+
+    .showcase-arrow:hover {
+        transform: translateY(-50%) scale(1.04);
+    }
+
+    .project-card {
+        flex-basis: 100%;
     }
 
     .project-card:not(.is-active) {
@@ -911,6 +935,7 @@ const projects = [
 ];
 
 let currentIndex = 0;
+let visualIndex = 1;
 let isAnimating = false;
 
 const track = document.getElementById("showcaseTrack");
@@ -1025,17 +1050,41 @@ function updateTrackPosition() {
     const cardWidth = card.offsetWidth;
     const gap = parseFloat(getComputedStyle(track).gap) || 24;
     const viewportWidth = viewport.offsetWidth;
-    const offset = (viewportWidth - cardWidth) / 2 - currentIndex * (cardWidth + gap);
+    const offset = (viewportWidth - cardWidth) / 2 - visualIndex * (cardWidth + gap);
     track.style.transform = "translateX(" + offset + "px)";
 }
 
 function renderCarousel() {
     track.innerHTML = "";
+
+    const lastIndex = projects.length - 1;
+    const firstClone = createCard(projects[lastIndex], lastIndex);
+    firstClone.classList.remove("is-active");
+    firstClone.setAttribute("aria-hidden", "true");
+    firstClone.dataset.clone = "true";
+    track.appendChild(firstClone);
+
     projects.forEach(function (project, index) {
         track.appendChild(createCard(project, index));
     });
+
+    const lastClone = createCard(projects[0], 0);
+    lastClone.classList.remove("is-active");
+    lastClone.setAttribute("aria-hidden", "true");
+    lastClone.dataset.clone = "true";
+    track.appendChild(lastClone);
+
     renderDots();
     requestAnimationFrame(updateTrackPosition);
+}
+
+function updateActiveCard() {
+    track.querySelectorAll(".project-card").forEach(function (card) {
+        const isActive = card.dataset.clone !== "true" && Number(card.dataset.index) === currentIndex;
+        card.classList.toggle("is-active", isActive);
+        card.setAttribute("aria-hidden", isActive ? "false" : "true");
+    });
+    renderDots();
 }
 
 function goToProject(index, openDetails) {
@@ -1043,7 +1092,9 @@ function goToProject(index, openDetails) {
     isAnimating = true;
 
     currentIndex = ((index % projects.length) + projects.length) % projects.length;
-    renderCarousel();
+    visualIndex = currentIndex + 1;
+    updateActiveCard();
+    updateTrackPosition();
 
     if (openDetails) {
         openDetail(currentIndex);
@@ -1055,7 +1106,31 @@ function goToProject(index, openDetails) {
 }
 
 function changeProject(direction) {
-    goToProject(currentIndex + direction, false);
+    if (isAnimating) return;
+    isAnimating = true;
+
+    currentIndex = (currentIndex + direction + projects.length) % projects.length;
+    visualIndex += direction;
+    updateActiveCard();
+
+    if (visualIndex === 0 || visualIndex === projects.length + 1) {
+        const clone = visualIndex === 0 ? track.firstElementChild : track.lastElementChild;
+        clone.classList.add("is-active");
+    }
+
+    updateTrackPosition();
+
+    setTimeout(function () {
+        if (visualIndex === 0 || visualIndex === projects.length + 1) {
+            track.style.transition = "none";
+            visualIndex = currentIndex + 1;
+            updateTrackPosition();
+            track.offsetHeight;
+            track.style.transition = "";
+            updateActiveCard();
+        }
+        isAnimating = false;
+    }, 480);
 }
 
 function openDetail(index) {
