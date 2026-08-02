@@ -6,13 +6,6 @@
         { id: "contact", path: "contact/index.html" }
     ];
 
-    var PAGE_LABELS = {
-        home: "Accueil",
-        projects: "Projets",
-        skills: "Compétences",
-        contact: "Contact"
-    };
-
     var MOBILE_MAX = 640;
     var MIN_SWIPE_DISTANCE = 52;
     var FLICK_DISTANCE = 36;
@@ -85,31 +78,6 @@
         return distanceOk || flickOk;
     }
 
-    function updateProgress() {
-        var progress = document.getElementById("mobilePageProgress");
-        if (!progress) return;
-
-        var index = getCurrentIndex();
-        if (index < 0) {
-            progress.hidden = true;
-            return;
-        }
-
-        var page = SWIPE_PAGES[index];
-        var labelEl = progress.querySelector(".mobile-page-progress__label");
-        var stepEl = progress.querySelector(".mobile-page-progress__step");
-
-        if (labelEl) {
-            labelEl.textContent = PAGE_LABELS[page.id] || page.id;
-            labelEl.setAttribute("data-translate", "");
-        }
-        if (stepEl) {
-            stepEl.textContent = " (" + (index + 1) + "/" + SWIPE_PAGES.length + ")";
-        }
-
-        progress.hidden = !isMobile();
-    }
-
     function updateHints() {
         var hints = document.getElementById("mobileSwipeHints");
         var prev = hints && hints.querySelector(".mobile-swipe-hint--prev");
@@ -150,7 +118,6 @@
     }
 
     function refreshUi() {
-        updateProgress();
         updateHints();
     }
 
@@ -160,18 +127,6 @@
             refreshUi();
             return;
         }
-
-        var headerTop = document.querySelector(".header-top");
-        var toggle = document.querySelector(".nav-toggle");
-        if (!headerTop || !toggle) return;
-
-        var progress = document.createElement("div");
-        progress.id = "mobilePageProgress";
-        progress.className = "mobile-page-progress";
-        progress.innerHTML =
-            '<span class="mobile-page-progress__label" data-translate></span>' +
-            '<span class="mobile-page-progress__step" aria-hidden="true"></span>';
-        headerTop.insertBefore(progress, toggle);
 
         var hints = document.createElement("div");
         hints.id = "mobileSwipeHints";
