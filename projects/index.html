@@ -1,21 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0a0e1a">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Projets Francis Manseau : HK Crib GO, Nexus et Haven.">
-<title>Projets | Francis Manseau</title>
+<meta name="description" content="Le Laboratoire Francis Manseau — études de conception : applications, systèmes, prototypes, expérimentations.">
+<title>Laboratoire | Francis Manseau</title>
 <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/brand/favicon/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="../assets/brand/favicon/favicon-16.png" type="image/png" sizes="16x16">
     <link rel="shortcut icon" href="../assets/logo/favicon.png" type="image/png">
 <script src="../js/theme.js"></script>
-<link rel="stylesheet" href="../css/site.css?v=9">
-<link rel="stylesheet" href="../css/themes.css?v=9">
-<link rel="stylesheet" href="../css/layout.css?v=9">
-<link rel="stylesheet" href="../css/interactive.css?v=9">
+<link rel="stylesheet" href="../css/site.css?v=12">
+<link rel="stylesheet" href="../css/themes.css?v=12">
+<link rel="stylesheet" href="../css/layout.css?v=12">
+<link rel="stylesheet" href="../css/interactive.css?v=12">
+<link rel="stylesheet" href="../css/lab-studies.css?v=2">
 
 <style>
 :root {
@@ -97,8 +98,8 @@ main.page-projects {
     background: var(--bg-card);
     box-shadow: var(--card-shadow, 0 10px 40px rgba(0, 0, 0, 0.18));
     overflow: hidden;
-    opacity: 0.48;
-    transform: scale(0.94);
+    opacity: 0.88;
+    transform: scale(0.97);
     transition: opacity 0.38s ease, transform 0.38s ease, border-color 0.38s ease, box-shadow 0.38s ease;
 }
 
@@ -759,7 +760,7 @@ main.page-projects {
                 </a>
             </div>
             <nav class="main-nav" id="mainNav" aria-label="Navigation principale"></nav>
-            <script src="../js/site-nav.js?v=6"></script>
+            <script src="../js/site-nav.js?v=7"></script>
             <span class="lang-status" id="langStatus" data-translate>Traduction…</span>
             <nav class="lang-switcher" id="langFlags" aria-label="Choisir la langue">
                 <button type="button" class="lang-btn" data-lang="en">EN</button>
@@ -785,11 +786,11 @@ main.page-projects {
 
 <main class="page-projects">
     <header class="page-intro">
-        <h1 data-translate>Projets</h1>
-        <p class="page-intro__lead" data-translate>Projets concrets en mobile Android, intelligence artificielle et automatisation — livrables, testables et orientés produit.</p>
+        <h1 data-translate>Le Laboratoire</h1>
+        <p class="page-intro__lead" data-translate>Ici, chaque réalisation est une étude de conception. Le chemin compte autant que le résultat.</p>
     </header>
 
-    <section class="projects-showcase" id="projectsShowcase" aria-label="Carrousel de projets">
+    <section class="projects-showcase" id="projectsShowcase" aria-label="Études de conception">
         <div class="showcase-carousel">
             <button class="showcase-arrow" type="button" data-direction="-1" aria-label="Projet précédent">‹</button>
 
@@ -826,7 +827,7 @@ main.page-projects {
 <script src="../js/mobile-nav.js?v=16"></script>
 <script src="../js/portrait-lock.js"></script>
 <script src="../js/back-to-top.js"></script>
-<script src="../js/i18n.js"></script>
+<script src="../js/i18n.js?v=2"></script>
 <script>
 const projects = [
     {
@@ -838,6 +839,20 @@ const projects = [
         technologies: ["Kotlin", "Android", "JavaScript", "Gradle", "WebView", "IA"],
         downloadUrl: "https://github.com/francismanseau-oss/hk-crib-go-apk/releases/latest/download/HK-Crib-GO.apk",
         downloadLabel: "Télécharger l'APK",
+        categories: ["applications", "ia"],
+        status: "abouti",
+        statusLabel: "Suffisamment abouti",
+        journalUrl: "../journals/hk-crib-go.html",
+        study: {
+            irritation: "Vouloir jouer au cribbage sur le téléphone… et ne trouver que des expériences lourdes, lentes ou trop loin du vrai jeu.",
+            why: "Rendre le cribbage accessible sur mobile sans perdre la profondeur stratégique.",
+            problem: "Les versions existantes freinaient le plaisir : friction, interface confuse, ou parties peu fluides.",
+            birth: "L’irritation est devenue un mandat : moderniser le rythme et l’UI, garder les règles intactes.",
+            choices: "Android natif hors ligne, adversaire IA, statistiques et support intégrés pour une boucle produit complète.",
+            challenges: "Lisibilité du plateau, latence perçue, et support sans alourdir le jeu.",
+            experiments: "Plusieurs densités d’UI et niveaux d’IA ; les parcours trop techniques ont été abandonnés.",
+            learnings: "Un produit jouable vaut mieux qu’une démo parfaite. Suffisamment abouti pour passer au suivant."
+        },
         template: `
             <section class="page-hero">
                 <div class="project-card-badges" aria-label="Informations projet">
@@ -902,6 +917,20 @@ const projects = [
         alt: "Nexus — Mobile et PC pour piloter Cursor à distance",
         description: "Écosystème privé réunissant Nexus Mobile et Nexus PC pour piloter Virtuose/Cursor à distance, préserver le contexte récent des conversations et suivre l'exécution grâce au serveur WSAI.",
         technologies: ["Kotlin", "Python", "Android", "Windows", "REST", "Automatisation"],
+        categories: ["systemes", "applications", "ia"],
+        status: "en-developpement",
+        statusLabel: "En développement",
+        journalUrl: "../journals/index.html",
+        study: {
+            irritation: "Être en déplacement ou loin du bureau… et ne plus pouvoir avancer sur Cursor / le workspace sans rester collé à l’écran du PC.",
+            why: "Commander le travail de conception à distance, sans couper le fil des conversations.",
+            problem: "Le cerveau du projet vit sur le PC ; le téléphone ne servait à rien pour continuer vraiment.",
+            birth: "L’irritation a forcé un système : mobile pour décider, PC pour exécuter, file pour tenir le contexte.",
+            choices: "Deux faces (Mobile + PC), serveur discret, continuité des conversationId plutôt qu’une vitrine.",
+            challenges: "Fiabiliser la file, préserver le contexte, rester sobre côté interface.",
+            experiments: "Plusieurs schémas de transport et d’agents ; la simplicité du parcours a gagné.",
+            learnings: "Un système discret qui tient vaut mieux qu’une démo spectaculaire qui casse."
+        },
         template: `
             <section class="page-hero">
                 <div class="project-card-badges" aria-label="Informations projet">
@@ -987,6 +1016,20 @@ const projects = [
         technologies: ["Kotlin", "Android", "Règles", "Notifications", "Automatisation"],
         downloadUrl: "https://github.com/francismanseau-oss/haven-apk/releases/latest/download/haven.apk",
         downloadLabel: "Télécharger l'APK",
+        categories: ["applications", "systemes"],
+        status: "abouti",
+        statusLabel: "Suffisamment abouti",
+        journalUrl: "../journals/index.html",
+        study: {
+            irritation: "Le téléphone qui n’arrête pas d’interrompre — appels, notifications, messages — au mauvais moment (conduite, sommeil, travail).",
+            why: "Reprendre le contrôle des interruptions selon le contexte de vie.",
+            problem: "Les modes silencieux classiques sont trop binaires ; la vraie vie demande des règles fines.",
+            birth: "Une frustration quotidienne transformée en moteur de règles : travail, conduite, sommeil.",
+            choices: "Android, règles par contexte, configuration une fois puis automatisation en arrière-plan.",
+            challenges: "Exceptions d’urgence, horaires, clarté de l’UI sans noyer l’utilisateur.",
+            experiments: "Plusieurs modèles de priorités ; les trop complexes ont été simplifiés.",
+            learnings: "La meilleure automatisation est celle qu’on oublie — parce qu’elle respecte le contexte."
+        },
         template: `
             <section class="haven-summary-box">
                 <div class="project-card-badges" aria-label="Informations projet">
@@ -1035,6 +1078,148 @@ const projects = [
                         <p data-translate>Filtrage nocturne intelligent avec exceptions d'urgence et alertes gouvernementales préservées.</p>
                     </article>
                 </div>
+            </section>
+        `
+    },
+    {
+        id: "kios",
+        title: "Kios",
+        image: "../assets/project-gallery/kios.png",
+        alt: "Kios — prototype de terrain Godot",
+        description: "Prototype embryonnaire d’un univers de terrain en Godot : exploration, construction de monde, et expérimentations voxel.",
+        technologies: ["Godot", "GDScript", "Prototype terrain"],
+        categories: ["prototypes"],
+        status: "prototype",
+        statusLabel: "Prototype — terrain",
+        journalUrl: "../journals/index.html",
+        study: {
+            irritation: "Avoir des idées de monde et de terrain… et nulle part où les tester vite, concrètement, sans attendre un « vrai » produit fini.",
+            why: "Ouvrir un bac à sable de conception : un terrain où les idées de monde peuvent naître et se casser.",
+            problem: "Sans prototype spatial, les idées restent abstraites ; le terrain force à voir ce qui tient vraiment.",
+            birth: "Phase de prototypage Godot : terrain, exploration, essais — volontairement embryonnaire.",
+            choices: "Godot comme environnement de conception. Godot Voxel reste un détail d’expérimentation, pas une promesse de produit.",
+            challenges: "Rester honnête sur le stade (prototype) tout en montrant la démarche.",
+            experiments: "Blocs de terrain, rythme de déplacement, premières structures — plusieurs pistes encore ouvertes.",
+            learnings: "Un prototype visible vaut mieux qu’une idée parfaite sur papier. Kios grandira avec le laboratoire."
+        },
+        template: `
+            <section class="page-hero">
+                <div class="project-card-badges" aria-label="Informations projet">
+                    <span class="badge badge-cat-type" data-translate>Prototype</span>
+                    <span class="badge badge-cat-platform" data-translate>Godot</span>
+                    <span class="badge badge-dev" data-translate>Terrain en prototypage</span>
+                </div>
+                <h1>Kios</h1>
+                <p class="lead" data-translate>Kios n’est pas encore un produit. C’est un terrain de conception : un espace Godot où tester des idées de monde avant qu’elles deviennent autre chose.</p>
+                <p class="lead" data-translate>Le stade est embryonnaire — et c’est volontaire. Ici, on montre le chemin, pas une vitrine finie.</p>
+            </section>
+            <section class="screenshots-section">
+                <h2 class="screenshots-title" data-translate>Aperçu du terrain</h2>
+                <div class="screenshots-grid">
+                    <figure class="screenshot-card">
+                        <img src="../assets/projects/kios/kios-pure-world.webp" alt="Kios — aperçu du monde" width="1280" height="720" loading="lazy" decoding="async">
+                        <figcaption data-translate>Prototype de terrain — exploration</figcaption>
+                    </figure>
+                </div>
+            </section>
+        `
+    },
+    {
+        id: "project-inspector",
+        title: "Project Inspector",
+        image: "../assets/project-gallery/project-inspector.png",
+        alt: "Project Inspector — outil d’inspection de projets",
+        description: "Outil né d’une irritation concrète : inspecter plus vite ce qui bloque dans un projet, sans perdre le fil.",
+        technologies: ["Automatisation", "Windows", "Scripts"],
+        categories: ["systemes", "experimentations"],
+        status: "en-developpement",
+        statusLabel: "En développement",
+        journalUrl: "../journals/index.html",
+        study: {
+            irritation: "Perdre du temps à chercher où ça coince dans un projet — fichiers, états, détails — alors que l’énergie devrait aller à la solution.",
+            why: "Accélérer l’inspection : voir plus clair, plus vite, pour décider.",
+            problem: "Sans vue structurée, le diagnostic devient du bricolage répété.",
+            birth: "Un outil de laboratoire pour soutenir la méthode Comprendre → Construire → Tester → Améliorer.",
+            choices: "Priorité à la clarté du diagnostic plutôt qu’à une interface spectaculaire.",
+            challenges: "Rester utile sans devenir un monstre de fonctionnalités.",
+            experiments: "Plusieurs formats de rapport et de parcours ; simplification en cours.",
+            learnings: "Les meilleurs outils d’atelier naissent d’une irritation répétée — pas d’une feature list."
+        },
+        template: `
+            <section class="page-hero">
+                <div class="project-card-badges" aria-label="Informations projet">
+                    <span class="badge badge-cat-type" data-translate>Outil</span>
+                    <span class="badge badge-cat-platform" data-translate>Atelier</span>
+                    <span class="badge badge-dev" data-translate>En développement</span>
+                </div>
+                <h1>Project Inspector</h1>
+                <p class="lead" data-translate>Un outil du laboratoire pour inspecter plus vite ce qui bloque — au service de la conception, pas de la démo.</p>
+            </section>
+        `
+    },
+    {
+        id: "chatgpt-web",
+        title: "ChatGPT-web (affichage allégé)",
+        noImage: true,
+        placeholderLabel: "Script · Web",
+        alt: "Script d’affichage allégé — pas de capture disponible",
+        description: "Script expérimental pour n’afficher que les derniers messages du fil (environ 5), accélérer le travail avec l’agent — sans couper le contexte AI.",
+        technologies: ["JavaScript", "Navigateur", "Expérimentation"],
+        categories: ["idees"],
+        status: "experimentation",
+        statusLabel: "Idée / expérimentation",
+        journalUrl: "../journals/index.html",
+        study: {
+            irritation: "Un fil qui s’allonge… la page devient lourde, le scroll devient lent, alors que l’agent a encore besoin de tout le contexte.",
+            why: "Alléger l’affichage (garder les ~5 derniers messages visibles) sans couper le contexte AI.",
+            problem: "Performance et lisibilité du fil vs conservation du contexte pour l’agent.",
+            birth: "Une irritation quotidienne de session longue, transformée en micro-script d’atelier.",
+            choices: "Masquer à l’écran seulement — le contexte reste ; approche fragile après les mises à jour.",
+            challenges: "Compatibilité après update, ne rien casser côté agent. Pas de capture d’écran pour l’instant — le script suffit à raconter l’idée.",
+            experiments: "Plusieurs seuils d’affichage ; règle actuelle : derniers messages seulement.",
+            learnings: "Parfois le bon outil est un script né d’une vraie friction — pas un produit, et pas besoin d’une photo pour le comprendre."
+        },
+        template: `
+            <section class="page-hero">
+                <div class="project-card-badges" aria-label="Informations projet">
+                    <span class="badge badge-cat-type" data-translate>Idée</span>
+                    <span class="badge badge-cat-platform" data-translate>Web</span>
+                    <span class="badge badge-soon" data-translate>Sans capture</span>
+                </div>
+                <h1>ChatGPT-web</h1>
+                <p class="lead" data-translate>Afficher moins pour travailler plus vite — sans priver l’agent de son contexte. Micro-script d’atelier ; aucune capture pour l’instant, volontairement.</p>
+            </section>
+        `
+    },
+    {
+        id: "mail-perso",
+        title: "Courriel privé",
+        image: "../assets/project-gallery/mail-perso.png",
+        alt: "Courriel privé — projet en cours",
+        description: "Projet embryonnaire : reprendre la main sur le courriel privé. Pas encore abouti — déjà une irritation claire.",
+        technologies: ["Prototype", "Vie privée"],
+        categories: ["prototypes", "experimentations"],
+        status: "experimentation",
+        statusLabel: "En expérimentation — non abouti",
+        journalUrl: "../journals/index.html",
+        study: {
+            irritation: "Le courriel privé qui ne se comporte pas comme on le voudrait — bruit, dépendance, manque de contrôle.",
+            why: "Explorer une approche plus maîtrisée du courriel, alignée sur la même méthode de conception.",
+            problem: "Les boîtes classiques imposent leurs règles ; l’irritation, c’est le manque de leviers simples.",
+            birth: "Encore ouvert : idée et premiers essais, pas un produit à promettre.",
+            choices: "Dire la vérité du stade — non fini — plutôt que d’inventer une vitrine.",
+            challenges: "Ne pas sur-vendre ; garder la place pour l’évolution dans le laboratoire.",
+            experiments: "Pistes en cours ; plusieurs hypothèses non tranchées.",
+            learnings: "Montrer un projet non abouti, c’est aussi montrer comment on pense — pas seulement ce qui est livré."
+        },
+        template: `
+            <section class="page-hero">
+                <div class="project-card-badges" aria-label="Informations projet">
+                    <span class="badge badge-cat-type" data-translate>Idée</span>
+                    <span class="badge badge-soon" data-translate>Non abouti</span>
+                </div>
+                <h1 data-translate>Courriel privé</h1>
+                <p class="lead" data-translate>Une irritation réelle, un projet encore ouvert. Le laboratoire l’accueille comme expérimentation — pas comme promesse marketing.</p>
             </section>
         `
     }
@@ -1087,6 +1272,19 @@ function createCard(project, index) {
 
     const media = document.createElement("div");
     media.className = "project-card__media" + (project.imageClass ? " " + project.imageClass : "");
+
+    if (project.noImage) {
+        media.classList.add("project-card__media--placeholder");
+        const label = document.createElement("span");
+        label.className = "project-card__placeholder-label";
+        label.setAttribute("data-translate", "");
+        label.textContent = project.placeholderLabel || "Sans capture";
+        media.appendChild(label);
+        media.setAttribute("role", "img");
+        media.setAttribute("aria-label", project.alt || "Sans capture");
+        card.appendChild(media);
+        return card;
+    }
 
     const img = document.createElement("img");
     img.src = project.image;
@@ -1165,12 +1363,21 @@ function updateActiveCard() {
     renderDots();
 }
 
-function goToProject(index, openDetails) {
-    if (isAnimating || index === currentIndex) return;
+function goToProject(index) {
+    if (isAnimating) return;
+    const next = ((index % projects.length) + projects.length) % projects.length;
+    if (next === currentIndex) {
+        visualIndex = currentIndex + 1;
+        updateActiveCard();
+        updateTrackPosition();
+        renderProjectDetail(currentIndex);
+        return;
+    }
+
     isAnimating = true;
     detail.style.opacity = "0";
 
-    currentIndex = ((index % projects.length) + projects.length) % projects.length;
+    currentIndex = next;
     visualIndex = currentIndex + 1;
     updateActiveCard();
     updateTrackPosition();
@@ -1217,9 +1424,55 @@ function changeProject(direction) {
     }, 480);
 }
 
+function escapeHtml(value) {
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+}
+
+function renderStudyBoard(project) {
+    if (!project.study) return "";
+    const s = project.study;
+    const blocks = [
+        { note: "Irritation", title: "L’irritation de départ", body: s.irritation },
+        { note: "Intention", title: "Pourquoi ce projet existe-t-il ?", body: s.why },
+        { note: "Problème", title: "Quel problème souhaitais-je résoudre ?", body: s.problem },
+        { note: "Naissance", title: "Comment le projet est né", body: s.birth },
+        { note: "Choix", title: "Les choix de conception", body: s.choices },
+        { note: "Défis", title: "Les défis", body: s.challenges },
+        { note: "Expérimentations", title: "Les expérimentations", body: s.experiments },
+        { note: "Apprentissages", title: "Les apprentissages", body: s.learnings }
+    ];
+
+    let html = '<section class="study-board" aria-label="Étude de conception">';
+    html += '<h2 class="study-board__title" data-translate>Étude de conception</h2>';
+    if (project.statusLabel) {
+        html += '<p class="lab-status" data-translate>' + escapeHtml(project.statusLabel) + "</p>";
+    }
+    blocks.forEach(function (block) {
+        if (!block.body) return;
+        html += '<article class="study-block">';
+        html += '<span class="study-note" data-translate>' + escapeHtml(block.note) + "</span>";
+        html += "<h3 data-translate>" + escapeHtml(block.title) + "</h3>";
+        html += '<p data-translate>' + escapeHtml(block.body) + "</p>";
+        html += "</article>";
+    });
+    if (project.journalUrl) {
+        html += '<a class="study-journal-link" href="' + escapeHtml(project.journalUrl) + '" data-translate>Ouvrir le journal du concepteur →</a>';
+    }
+    html += "</section>";
+    return html;
+}
+
 function renderProjectDetail(index) {
+    const project = projects[index];
     detail.hidden = false;
-    detail.innerHTML = projects[index].template;
+    detail.innerHTML = project.template + renderStudyBoard(project);
+    if (window.WeidlerI18n && typeof window.WeidlerI18n.applyCurrentLang === "function") {
+        window.WeidlerI18n.applyCurrentLang();
+    }
 }
 
 arrows.forEach(function (arrow) {
@@ -1240,6 +1493,10 @@ viewport.addEventListener("touchend", function (event) {
 }, { passive: true });
 
 window.addEventListener("resize", updateTrackPosition);
+
+if (location.hash) {
+    history.replaceState(null, "", location.pathname + location.search);
+}
 
 renderCarousel();
 </script>

@@ -1,4 +1,4 @@
-﻿{
+{
   "studioName": "Francis Manseau",
   "tagline": "Créer. Solutionner. Connecter.",
   "nav": {
@@ -42,22 +42,45 @@
     "empty": "Aucun commentaire pour l'instant. Soyez le premier !"
   },
   "home": {
-    "subtitle": "Concepteur de solutions numériques par orchestration de l'intelligence artificielle",
-    "lead": "Je ne code pas directement. J'analyse les besoins, conçois l'architecture et les fonctionnalités, puis je dirige les outils d'intelligence artificielle qui réalisent le code. Je supervise, teste et améliore chaque résultat jusqu'à l'obtention d'un produit fonctionnel, fiable et évolutif.",
-    "cta": "Découvrir mes projets →",
-    "metaDescription": "Portfolio de Francis Manseau, concepteur de solutions numériques par orchestration IA. Conception, direction, supervision et validation de produits Android et de systèmes automatisés.",
-    "contactLead": "Un projet, une collaboration ou une question — je vous réponds avec plaisir."
+    "subtitle": "Analyste et concepteur de solutions techniques",
+    "lead": "Les technologies évoluent. La résolution de problèmes demeure. J’analyse un besoin, conçois une solution et vais jusqu’à un résultat fiable — avec Android, l’automatisation et l’intelligence artificielle comme outils.",
+    "cta": "Explorer le laboratoire",
+    "metaDescription": "Francis Manseau — laboratoire de conception. Chaque solution commence par une idée.",
+    "contactLead": "Pour une collaboration ou une question — écrivez-moi.",
+    "thresholdEyebrow": "Le Laboratoire",
+    "thresholdLine": "Chaque solution commence par une idée.",
+    "thresholdEnter": "Franchir le seuil",
+    "thresholdHint": "ou faites défiler doucement",
+    "welcome": "Bienvenue.",
+    "playground": "Vous n’entrez pas dans un simple portfolio. Vous entrez dans un laboratoire de conception.",
+    "manifesto1": "Ici, les idées naissent, évoluent, sont testées, parfois abandonnées, puis réinventées.",
+    "manifesto2": "Certaines deviennent des applications. D’autres restent des prototypes. Quelques-unes ne dépasseront jamais le stade de l’expérimentation.",
+    "manifestoCommon": "Toutes participent pourtant à une même quête.",
+    "cycleUnderstand": "Comprendre",
+    "cycleBuild": "Construire",
+    "cycleTest": "Tester",
+    "cycleImprove": "Améliorer",
+    "signature": "Les technologies évoluent. La résolution de problèmes demeure.",
+    "terrainTitle": "Dans le laboratoire",
+    "terrainLead": "Applications, prototypes, outils d’atelier et idées en cours — chaque pièce raconte une irritation, puis une démarche.",
+    "credo": "Je ne considère aucun projet comme terminé. Seulement suffisamment abouti pour passer au suivant.",
+    "noteHypothesis": "Hypothèse",
+    "notePrototype": "Prototype",
+    "noteExperiment": "Expérimentation",
+    "noteValidation": "Validation",
+    "noteImprove": "Amélioration",
+    "noteDesign": "Conception"
   },
   "contact": {
     "title": "Contact",
-    "p1": "Je suis actuellement à la recherche d'une opportunité professionnelle me permettant de mettre à profit ma capacité à analyser des besoins, concevoir des solutions numériques et diriger leur réalisation avec l'intelligence artificielle.",
-    "p2": "Je souhaite intégrer un environnement où je pourrai contribuer à des projets concrets, collaborer avec une équipe et continuer à développer mes compétences en architecture fonctionnelle, automatisation et orchestration d'outils d'IA.",
-    "p3": "Vous souhaitez discuter d'un poste, d'une collaboration ou de mon parcours? Communiquez directement avec moi."
+    "p1": "Les technologies évoluent. La résolution de problèmes demeure.",
+    "p2": "J’aimerais rejoindre une entreprise où l’analyse précède l’action — pour concevoir des solutions et contribuer à des projets qui ont un impact concret.",
+    "p3": "Pour discuter d’une collaboration ou de mon parcours, écrivez-moi."
   },
   "skills": {
-    "title": "Compétences",
-    "role": "Concepteur de solutions numériques par orchestration de l'intelligence artificielle",
-    "lead": "Je ne code pas directement. Je conçois les solutions, définis leur architecture et leur fonctionnement, puis je dirige leur réalisation par des outils et des agents d'intelligence artificielle.",
+    "title": "Démarche",
+    "role": "Analyste et concepteur de solutions techniques",
+    "lead": "Les technologies évoluent. La résolution de problèmes demeure. Je comprends un problème, je conçois une solution, et je vais jusqu’au résultat fiable — l’IA accélère la réalisation, elle ne remplace pas l’analyse.",
     "designsFeatures": "Conçoit les fonctionnalités",
     "directsCorrections": "Dirige les corrections"
   },

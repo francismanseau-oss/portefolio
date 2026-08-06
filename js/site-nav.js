@@ -8,8 +8,8 @@
 
     var items = [
         { id: "home", href: root + "index.html", label: "Accueil" },
-        { id: "projects", href: root + "projects/index.html", label: "Projets" },
-        { id: "skills", href: root + "competences/index.html", label: "Compétences" },
+        { id: "projects", href: root + "projects/index.html", label: "Laboratoire" },
+        { id: "skills", href: root + "competences/index.html", label: "Démarche" },
         { id: "contact", href: root + "contact/index.html", label: "Contact" }
     ];
 

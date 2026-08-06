@@ -281,6 +281,18 @@
         documentCache[key] = data;
     }
 
+    /** Re-applique la langue courante après injection DOM (ex. carrousel projets). */
+    function applyCurrentLang() {
+        cacheOriginals();
+        if (currentPageLang === PAGE_SOURCE_LANG) {
+            getTranslatableElements().forEach(function (el) {
+                if (el.dataset.originalText) writeText(el, el.dataset.originalText);
+            });
+            return Promise.resolve();
+        }
+        return translateFullPage(currentPageLang);
+    }
+
     window.WeidlerI18n = {
         SOURCE_LANG: PAGE_SOURCE_LANG,
         normalizeLang: normalizeLang,
@@ -290,6 +302,7 @@
         translateText: translateText,
         translateTexts: translateTexts,
         translateHtml: translateHtml,
+        applyCurrentLang: applyCurrentLang,
         getDocumentCache: getDocumentCache,
         setDocumentCache: setDocumentCache
     };

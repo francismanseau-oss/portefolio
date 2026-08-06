@@ -1,40 +1,41 @@
-# Portefolio — Francis Manseau
+# Portefolio — Laboratoire Francis Manseau
 
-Site portfolio professionnel orienté recrutement (mobile, carrousel projets, thème jour/nuit).
+Site portfolio professionnel (Laboratoire de conception) — mobile, thème jour/nuit, carrousel d’études.
 
 ## Identité visuelle
 
 Symbole **Maillage Modular** — fichiers dans `assets/brand/` (SVG) ; PNG favicon/nav via `generate-brand-assets.bat` ou `python scripts/generate-brand-assets.py`. Voir `assets/brand/CONCEPT.md`.
 
-## Première installation
+## Version
 
-Double-clic ou exécution :
+Voir `VERSION.md` — **Accueil V1.0 gelé** (2026-08-06).
+
+## Première installation
 
 ```
 C:\Projets\portefolio\setup-init.bat
 ```
 
-Ce script copie la base depuis `weidlerstudio.github.io` si nécessaire.
+## Structure actuelle
 
-## Structure (portfolio recruteur)
+| Section | Fichier | Note |
+|---------|---------|------|
+| **Accueil** | `index.html` | Seuil + atelier — **V1.0 gelé** |
+| **Laboratoire** | `projects/index.html` | Études (carrousel + fiches) |
+| **Démarche** | `competences/index.html` | Approche & compétences |
+| **Contact** | `contact/index.html` | Courriel + LinkedIn |
+| **Journaux** | `journals/` | Carnets liés aux études |
 
-| Section | Fichier |
-|---------|---------|
-| **Accueil** | `index.html` — photo, présentation, CTA projets |
-| **Projets** | `projects/index.html` — carrousel + fiches détaillées |
-| **Compétences** | `competences/index.html` — conception, direction de projets IA, architecture fonctionnelle, validation |
-| **Contact** | `contact/index.html` — courriel uniquement |
+Navigation centralisée : `js/site-nav.js`  
+i18n dynamique (MyMemory) : `js/i18n.js` + `data-translate`
 
-Navigation centralisée dans `js/site-nav.js`.
-
-Sections retirées (redirection vers l'accueil) : Services, À propos, Soumission.
+Anciennes sections (Services / À propos / Soumission) : redirection vers l’accueil.
 
 ## Contact
 
-Courriel : `francismanseau@videotron.ca`
+Courriel : `francismanseau@videotron.ca`  
+LinkedIn : https://www.linkedin.com/in/francis-manseau-723b8586/
 
-Emplacements prévus pour GitHub / LinkedIn : commentaires HTML dans `contact/index.html`.
+## Modifier les études
 
-## Modifier les projets
-
-Liste dans `projects/index.html` (tableau `projects` en bas de fichier).
+Liste dans `projects/index.html` (tableau `projects`).
