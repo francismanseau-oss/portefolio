@@ -685,6 +685,61 @@ main.page-projects {
     padding: 0;
 }
 
+.haven-challenges {
+    margin-top: 32px;
+    padding: 28px 32px;
+    border-radius: var(--radius);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+}
+
+.haven-challenges .features-title { margin-bottom: 12px; }
+
+.haven-challenges__intro,
+.haven-challenges__outro,
+.haven-calendar-note p {
+    margin: 0 0 14px;
+    color: var(--lead-color);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.haven-challenges__outro { margin-bottom: 0; margin-top: 16px; }
+
+.haven-challenges__list {
+    margin: 0;
+    padding: 0 0 0 1.15em;
+    color: var(--text-muted-soft);
+    line-height: 1.75;
+}
+
+.haven-challenges__list li { margin: 0 0 6px; }
+.haven-challenges__list li:last-child { margin-bottom: 0; }
+
+.haven-calendar-note {
+    margin-top: 20px;
+    padding: 18px 22px;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid rgba(34, 211, 238, 0.55);
+}
+
+.haven-calendar-note__label {
+    display: inline-block;
+    margin: 0 0 8px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: rgba(100, 116, 139, 0.2);
+    color: var(--badge-soon);
+}
+
+.haven-calendar-note p:last-child { margin-bottom: 0; }
+
 .cribleplus-legal-links {
     margin-top: 32px;
     padding-top: 24px;
@@ -1079,6 +1134,26 @@ const projects = [
                     </article>
                 </div>
             </section>
+
+            <section class="haven-challenges" aria-labelledby="haven-challenges-title">
+                <h2 id="haven-challenges-title" class="features-title" data-translate>Défis techniques relevés</h2>
+                <p class="haven-challenges__intro" data-translate>Au cours du développement de Haven, plusieurs problématiques indépendantes ont été étudiées et résolues.</p>
+                <ul class="haven-challenges__list">
+                    <li data-translate>Architecture des appels d'urgence (911 / 112)</li>
+                    <li data-translate>Conception d'une logique permettant le déblocage d'un deuxième appel en moins de cinq minutes</li>
+                    <li data-translate>Filtrage intelligent des appels et des notifications</li>
+                    <li data-translate>Profils automatiques selon le contexte</li>
+                    <li data-translate>Automatisation Android</li>
+                    <li data-translate>Validation sur appareil réel</li>
+                    <li data-translate>Nombreuses itérations de conception, de tests et d'amélioration</li>
+                </ul>
+                <p class="haven-challenges__outro" data-translate>Ces défis représentent une partie importante du travail réalisé et illustrent davantage une démarche de conception de solutions qu'un simple développement d'application.</p>
+            </section>
+
+            <aside class="haven-calendar-note" aria-label="Calendrier Haven">
+                <span class="haven-calendar-note__label" data-translate>En préparation</span>
+                <p data-translate>Le calendrier Haven sert à configurer les journées flottantes, fériés, congés et journées pédagogiques — pour voir en un coup d'œil sa journée, sa semaine ou son mois. Cette fonctionnalité n'est pas encore disponible dans la version actuelle.</p>
+            </aside>
         `
     },
     {
