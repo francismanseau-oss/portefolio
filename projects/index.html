@@ -837,7 +837,7 @@ const projects = [
         alt: "HK Crib GO — jeu de cribbage Android",
         description: "Application mobile Android : jeu de cribbage moderne avec IA de jeu, statistiques détaillées et support technique intégré pour une expérience complète.",
         technologies: ["Kotlin", "Android", "JavaScript", "Gradle", "WebView", "IA"],
-        downloadUrl: "https://github.com/francismanseau-oss/hk-crib-go-apk/releases/latest/download/HK-Crib-GO.apk",
+        downloadUrl: "https://github.com/francismanseau-oss/hk-crib-go-apk/releases/download/v2.0.10/HK-Crib-GO-2.0.10.apk",
         downloadLabel: "Télécharger l'APK",
         categories: ["applications", "ia"],
         status: "abouti",
@@ -864,7 +864,7 @@ const projects = [
                 <p class="lead" data-translate>HK Crib GO revisite le Crible Hong Kong dans une version modernisée, plus rapide et plus fluide. Pensé pour Android, il conserve l'esprit stratégique du jeu de cartes tout en rendant les parties plus accessibles.</p>
                 <p class="lead" data-translate>Le projet combine moteur de jeu, interface soignée, adversaire IA, statistiques et boucle de support — démontrant une maîtrise du mobile de bout en bout.</p>
                 <p class="project-download-cta">
-                    <a class="btn-learn-more" href="https://github.com/francismanseau-oss/hk-crib-go-apk/releases/latest/download/HK-Crib-GO.apk" target="_blank" rel="noopener noreferrer" data-translate>Télécharger l'APK (Android)</a>
+                    <a class="btn-learn-more" href="https://github.com/francismanseau-oss/hk-crib-go-apk/releases/download/v2.0.10/HK-Crib-GO-2.0.10.apk" target="_blank" rel="noopener noreferrer" data-translate>Télécharger l'APK (Android)</a>
                 </p>
             </section>
 
@@ -1160,11 +1160,10 @@ const projects = [
     {
         id: "chatgpt-web",
         title: "ChatGPT-web (affichage allégé)",
-        noImage: true,
-        placeholderLabel: "Script · Web",
-        alt: "Script d’affichage allégé — pas de capture disponible",
+        image: "../assets/project-gallery/chatgpt-web.png",
+        alt: "ChatGPT-web — userscript Violentmonkey, affichage allégé",
         description: "Script expérimental pour n’afficher que les derniers messages du fil (environ 5), accélérer le travail avec l’agent — sans couper le contexte AI.",
-        technologies: ["JavaScript", "Navigateur", "Expérimentation"],
+        technologies: ["JavaScript", "Violentmonkey", "Navigateur"],
         categories: ["idees"],
         status: "experimentation",
         statusLabel: "Idée / expérimentation",
@@ -1175,19 +1174,19 @@ const projects = [
             problem: "Performance et lisibilité du fil vs conservation du contexte pour l’agent.",
             birth: "Une irritation quotidienne de session longue, transformée en micro-script d’atelier.",
             choices: "Masquer à l’écran seulement — le contexte reste ; approche fragile après les mises à jour.",
-            challenges: "Compatibilité après update, ne rien casser côté agent. Pas de capture d’écran pour l’instant — le script suffit à raconter l’idée.",
+            challenges: "Compatibilité après update, ne rien casser côté agent.",
             experiments: "Plusieurs seuils d’affichage ; règle actuelle : derniers messages seulement.",
-            learnings: "Parfois le bon outil est un script né d’une vraie friction — pas un produit, et pas besoin d’une photo pour le comprendre."
+            learnings: "Parfois le bon outil est un script né d’une vraie friction — pas un produit."
         },
         template: `
             <section class="page-hero">
                 <div class="project-card-badges" aria-label="Informations projet">
                     <span class="badge badge-cat-type" data-translate>Idée</span>
                     <span class="badge badge-cat-platform" data-translate>Web</span>
-                    <span class="badge badge-soon" data-translate>Sans capture</span>
+                    <span class="badge badge-cat-type" data-translate>Script</span>
                 </div>
                 <h1>ChatGPT-web</h1>
-                <p class="lead" data-translate>Afficher moins pour travailler plus vite — sans priver l’agent de son contexte. Micro-script d’atelier ; aucune capture pour l’instant, volontairement.</p>
+                <p class="lead" data-translate>Afficher moins pour travailler plus vite — sans priver l’agent de son contexte. Micro-script Violentmonkey d’atelier.</p>
             </section>
         `
     },
