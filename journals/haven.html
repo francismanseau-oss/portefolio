@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a0e1a">
     <meta name="color-scheme" content="light dark">
-    <meta name="description" content="Journaux du concepteur — prochaines directions de conception, Le Laboratoire Francis Manseau.">
-    <title>Journaux | Le Laboratoire</title>
+    <meta name="description" content="Journal du concepteur — Haven.">
+    <title>Journal · Haven | Le Laboratoire</title>
     <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/brand/favicon/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="../assets/brand/favicon/favicon-16.png" type="image/png" sizes="16x16">
@@ -56,36 +56,64 @@
 
     <main class="journal-page">
         <header class="page-intro">
-            <h1 data-translate>Journaux du concepteur</h1>
-            <p class="page-intro__kicker" data-translate>Le laboratoire continue d'évoluer.</p>
-            <p class="page-intro__lead" data-translate>
-                Ces carnets présentent les prochaines pistes de conception, les fonctionnalités en réflexion et les évolutions prévues pour chaque projet.
-            </p>
-            <p class="page-intro__lead" data-translate>
-                Ils permettent de comprendre non seulement ce qui a été construit, mais aussi la direction dans laquelle chaque application évolue.
-            </p>
+            <h1>Haven</h1>
+            <p class="page-intro__lead" data-translate>Carnet de conception — ce qui a été construit, et la direction qui suit.</p>
+            <p><a href="index.html" data-translate>← Tous les journaux</a> · <a href="../projects/index.html" data-translate>Laboratoire</a></p>
         </header>
 
-        <ul class="journal-list">
-            <li>
-                <a href="hk-crib-go.html">
-                    <strong>HK Crib GO</strong>
-                    <span data-translate>Carnet et prochaines pistes — distinctions, progression, sans toucher l'équilibre.</span>
-                </a>
-            </li>
-            <li>
-                <a href="haven.html">
-                    <strong>Haven</strong>
-                    <span data-translate>Carnet et prochaines pistes — calendrier intelligent et automatismes du quotidien.</span>
-                </a>
-            </li>
-            <li>
-                <a href="nexus.html">
-                    <strong>Nexus</strong>
-                    <span data-translate>Carnet et prochaines pistes — Mobile, PC et WSAI (personnalités des agents).</span>
-                </a>
-            </li>
-        </ul>
+        <article class="journal-entry">
+            <p class="journal-entry__meta" data-translate>Hypothèse</p>
+            <h2 data-translate>Reprendre le contrôle des interruptions</h2>
+            <p data-translate>
+                Le point de départ n'était pas « une autre app de silence ».
+                C'était : le téléphone qui interrompt au mauvais moment — conduite, sommeil, travail —
+                et le besoin de règles fines plutôt que d'un mode tout ou rien.
+            </p>
+        </article>
+
+        <article class="journal-entry">
+            <p class="journal-entry__meta" data-translate>Expérimentation</p>
+            <h2 data-translate>Des problématiques distinctes, une même application</h2>
+            <p data-translate>
+                Urgences, deuxième appel, filtrage, profils par contexte, automatisation Android :
+                chaque sujet a été étudié pour lui-même, puis rassemblé dans un comportement cohérent.
+                La validation sur appareil réel a tranché plus d'une hypothèse trop élégante sur le papier.
+            </p>
+        </article>
+
+        <article class="journal-entry">
+            <p class="journal-entry__meta" data-translate>Amélioration</p>
+            <h2 data-translate>Configurer une fois, puis oublier</h2>
+            <p data-translate>
+                La meilleure automatisation est celle qu'on oublie — parce qu'elle respecte le contexte.
+                Haven vise ce point : règles claires, exceptions nécessaires, moins de friction au quotidien.
+            </p>
+        </article>
+
+        <article class="journal-entry journal-entry--next">
+            <p class="journal-entry__meta" data-translate>Prochaine évolution</p>
+            <h2 data-translate>Un calendrier plus proche de la vraie vie</h2>
+            <p data-translate>
+                Les prochains travaux concernent principalement un calendrier intelligent
+                pour améliorer les automatismes — encore en préparation.
+            </p>
+            <ul>
+                <li data-translate>Jours fériés</li>
+                <li data-translate>Journées pédagogiques</li>
+                <li data-translate>Vacances</li>
+                <li data-translate>Congés personnalisés</li>
+                <li data-translate>Événements récurrents</li>
+            </ul>
+            <p data-translate>
+                L'objectif : rapprocher encore davantage le comportement automatique de la réalité quotidienne —
+                voir en un coup d'œil sa journée, sa semaine ou son mois.
+            </p>
+        </article>
+
+        <p class="lab-credo" style="text-align:center;margin-top:2.5rem;font-style:italic;color:var(--text-muted)" data-translate>
+            Je ne considère aucun projet comme terminé.
+            Seulement suffisamment abouti pour passer au suivant.
+        </p>
     </main>
 
     <script src="../js/nav.js"></script>
