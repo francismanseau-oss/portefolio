@@ -1568,9 +1568,14 @@ viewport.addEventListener("touchend", function (event) {
 
 window.addEventListener("resize", updateTrackPosition);
 
-if (location.hash) {
-    history.replaceState(null, "", location.pathname + location.search);
-}
+(function openProjectFromHash() {
+    const raw = (location.hash || "").replace(/^#/, "").trim();
+    if (!raw) return;
+    const idx = projects.findIndex(function (p) { return p.id === raw; });
+    if (idx < 0) return;
+    currentIndex = idx;
+    visualIndex = currentIndex + 1;
+})();
 
 renderCarousel();
 </script>
