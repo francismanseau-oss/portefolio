@@ -1214,7 +1214,7 @@ const projects = [
             irritation: "Perdre du temps à chercher où ça coince dans un projet — fichiers, états, détails — alors que l’énergie devrait aller à la solution.",
             why: "Accélérer l’inspection : voir plus clair, plus vite, pour décider.",
             problem: "Sans vue structurée, le diagnostic devient du bricolage répété.",
-            birth: "Un outil de laboratoire pour soutenir la méthode Comprendre → Construire → Tester → Améliorer.",
+            birth: "Un outil de laboratoire pour soutenir la méthode Comprendre → Tester → Corriger → Valider → Améliorer.",
             choices: "Priorité à la clarté du diagnostic plutôt qu’à une interface spectaculaire.",
             challenges: "Rester utile sans devenir un monstre de fonctionnalités.",
             experiments: "Plusieurs formats de rapport et de parcours ; simplification en cours.",
@@ -1512,12 +1512,12 @@ function renderStudyBoard(project) {
     const blocks = [
         { note: "Irritation", title: "L’irritation de départ", body: s.irritation },
         { note: "Intention", title: "Pourquoi ce projet existe-t-il ?", body: s.why },
-        { note: "Problème", title: "Quel problème souhaitais-je résoudre ?", body: s.problem },
+        { note: "Problème / Besoin", title: "Quel problème ou besoin ?", body: s.problem },
         { note: "Naissance", title: "Comment le projet est né", body: s.birth },
         { note: "Choix", title: "Les choix de conception", body: s.choices },
-        { note: "Défis", title: "Les défis", body: s.challenges },
+        { note: "Investigation / Approche", title: "Comment j’ai investigué", body: s.approach || s.investigation || s.challenges },
         { note: "Expérimentations", title: "Les expérimentations", body: s.experiments },
-        { note: "Apprentissages", title: "Les apprentissages", body: s.learnings }
+        { note: "Solution / Résultat", title: "Solution et résultat", body: s.result || s.solution || s.learnings }
     ];
 
     let html = '<section class="study-board" aria-label="Étude de conception">';
