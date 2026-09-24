@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -58,7 +58,7 @@
         <header class="page-intro">
             <h1>HK Crib GO</h1>
             <p class="page-intro__lead" data-translate>Carnet de conception — ce qui a été construit, et la direction qui suit.</p>
-            <p><a href="index.html" data-translate>← Tous les journaux</a> · <a href="../projects/index.html#hk-crib-go" data-translate>Laboratoire</a></p>
+            <p><a href="index.html" data-translate>← Tous les journaux</a> · <a href="../projects/index.html#hk-crib-go" data-translate>Projets phares</a></p>
         </header>
 
         <article class="journal-entry">
@@ -88,6 +88,38 @@
                 statistiques, historique, boucle de support.
                 Le jeu devenait un système vivant — suffisamment abouti pour passer à autre chose,
                 jamais « terminé » au sens figé.
+            </p>
+        </article>
+
+        <article class="journal-entry">
+            <p class="journal-entry__meta" data-translate>Amélioration</p>
+            <h2 data-translate>Plateau dual validé (2.0)</h2>
+            <p data-translate>
+                La géométrie du plateau JOUEUR / IA est figée : ancrage 25&nbsp;% / 75&nbsp;%,
+                respirations verticales cohérentes, titres centrés, noms jusqu’à 12 caractères
+                compressés dans la largeur de zone. La lecture du score redevient immédiate.
+            </p>
+        </article>
+
+        <article class="journal-entry">
+            <p class="journal-entry__meta" data-translate>Amélioration</p>
+            <h2 data-translate>Plateau solo validé (2.0)</h2>
+            <p data-translate>
+                Le mode 1 joueur a son propre viewBox (trous + colonne de numéros), sans reprendre
+                les constantes dual. Titre non coupé, labels dans le cadre, rythme vertical
+                inchangé — solo et dual sont maintenant figés séparément.
+            </p>
+        </article>
+
+        <article class="journal-entry">
+            <p class="journal-entry__meta" data-translate>Amélioration</p>
+            <h2 data-translate>IA équitable — même information, force différente (2.0)</h2>
+            <p data-translate>
+                Débutant à Maître partagent le même modèle de connaissance : cartes visibles
+                et carte actuelle seulement — pas de lecture du futur réel, pas d’identité des
+                face-down avant révélation, pas de coupe anticipée. La difficulté ne change plus
+                l’information disponible, seulement la qualité d’analyse et le taux d’erreur.
+                Un léger cadre UI (respiration externe) complète le confort sans toucher au plateau.
             </p>
         </article>
 
